@@ -231,6 +231,16 @@ var MyApplication = {
 };
 
 
+/**
+ * library container/namespace
+ */
+MyApplication.libs = {
+
+};
+
+/**
+ * utility container/namespace
+ */
 MyApplication.util = {
   /**
    * Function for applying a debounce effect to a function call.
