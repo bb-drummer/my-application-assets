@@ -1,0 +1,224 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group typography-base
+////
+
+// Base Typography
+// - - - - - - - - - - - - - - -
+// These are styles applied to basic HTML tags, including:
+//   - {style-group}... <p>
+//   ...
+
+/// Font family for header elements.
+/// @type String | List
+$header-font-family: $body-font-family !default;
+
+/// Font weight of headers.
+/// @type String
+$header-font-weight: $global-weight-normal !default;
+
+/// Font style (e.g. italicized) of headers.
+/// @type String
+$header-font-style: normal !default;
+
+/// Font stack used for elements that use monospaced type, such as code samples
+/// @type String | List
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace !default;
+
+/// Sizes of headings at various screen sizes. Each key is a breakpoint, and each value is a map of heading sizes.
+/// @type Map
+$header-sizes: (
+  small: (
+    'h1': 24,
+    'h2': 20,
+    'h3': 19,
+    'h4': 18,
+    'h5': 17,
+    'h6': 16,
+  ),
+  medium: (
+    'h1': 48,
+    'h2': 40,
+    'h3': 31,
+    'h4': 25,
+    'h5': 20,
+    'h6': 16,
+  ),
+) !default;
+
+/// Color of headers.
+/// @type Color
+$header-color: inherit !default;
+
+/// Line height of headers.
+/// @type Number
+$header-lineheight: 1.4 !default;
+
+/// Bottom margin of headers.
+/// @type Number
+$header-margin-bottom: 0.5rem !default;
+
+/// Text rendering method of headers.
+/// @type String
+$header-text-rendering: optimizeLegibility !default;
+
+/// Font size of `<small>` elements.
+/// @type Number
+$small-font-size: 80% !default;
+
+/// Color of `<small>` elements when placed inside headers.
+/// @type Color
+$header-small-font-color: $medium-gray !default;
+
+/// Line height of text inside `<p>` elements.
+/// @type Number
+$paragraph-lineheight: 1.6 !default;
+
+/// Bottom margin of paragraphs.
+/// @type Number
+$paragraph-margin-bottom: 1rem !default;
+
+/// Text rendering method for paragraph text.
+/// @type String
+$paragraph-text-rendering: optimizeLegibility !default;
+
+/// Text color of code samples.
+/// @type Color
+$code-color: $black !default;
+
+/// Font family of code samples.
+/// @type String | List
+$code-font-family: $font-family-monospace !default;
+
+/// Font weight of text in code samples.
+/// @type String
+$code-font-weight: $global-weight-normal !default;
+
+/// Background color of code samples.
+/// @type Color
+$code-background: $light-gray !default;
+
+/// Border around code samples.
+/// @type List
+$code-border: 1px solid $medium-gray !default;
+
+/// Padding around text of code samples.
+/// @type Number | List
+$code-padding: rem-calc(2 5 1) !default;
+
+/// Default color for links.
+/// @type Color
+$anchor-color: $primary-color !default;
+
+/// Default color for links on hover.
+/// @type Color
+$anchor-color-hover: scale-color($anchor-color, $lightness: -14%) !default;
+
+/// Default text deocration for links.
+/// @type String
+$anchor-text-decoration: none !default;
+
+/// Default text decoration for links on hover.
+/// @type String
+$anchor-text-decoration-hover: none !default;
+
+/// Maximum width of a divider.
+/// @type Number
+$hr-width: $global-width !default;
+
+/// Default border for a divider.
+/// @type List
+$hr-border: 1px solid $medium-gray !default;
+
+/// Default margin for a divider.
+/// @type Number | List
+$hr-margin: rem-calc(20) auto !default;
+
+/// Line height for items in a list.
+/// @type Number
+$list-lineheight: $paragraph-lineheight !default;
+
+/// Bottom margin for items in a list.
+/// @type Number
+$list-margin-bottom: $paragraph-margin-bottom !default;
+
+/// Bullet type to use for unordered lists (e.g., `square`, `circle`, `disc`).
+/// @type String
+$list-style-type: disc !default;
+
+/// Positioning for bullets on unordered list items.
+/// @type String
+$list-style-position: outside !default;
+
+/// Left (or right) margin for lists.
+/// @type Number
+$list-side-margin: 1.25rem !default;
+
+/// Left (or right) margin for a list inside a list.
+/// @type Number
+$list-nested-side-margin: 1.25rem !default;
+
+/// Bottom margin for `<dl>` elements.
+/// @type Number
+$defnlist-margin-bottom: 1rem !default;
+
+/// Font weight for `<dt>` elements.
+/// @type String
+$defnlist-term-weight: $global-weight-bold !default;
+
+/// Spacing between `<dt>` and `<dd>` elements.
+/// @type Number
+$defnlist-term-margin-bottom: 0.3rem !default;
+
+/// Text color of `<blockquote>` elements.
+/// @type Color
+$blockquote-color: $dark-gray !default;
+
+/// Padding inside a `<blockquote>` element.
+/// @type Number | List
+$blockquote-padding: rem-calc(9 20 0 19) !default;
+
+/// Side border for `<blockquote>` elements.
+/// @type List
+$blockquote-border: 1px solid $medium-gray !default;
+
+/// Font size for `<cite>` elements.
+/// @type Number
+$cite-font-size: rem-calc(13) !default;
+
+/// Text color for `<cite>` elements.
+/// @type Color
+$cite-color: $dark-gray !default;
+
+/// Font family for `<kbd>` elements.
+/// @type String | List
+$keystroke-font: $font-family-monospace !default;
+
+/// Text color for `<kbd>` elements.
+/// @type Color
+$keystroke-color: $black !default;
+
+/// Background color for `<kbd>` elements.
+/// @type Color
+$keystroke-background: $light-gray !default;
+
+/// Padding for `<kbd>` elements.
+/// @type Number | List
+$keystroke-padding: rem-calc(2 4 0) !default;
+
+/// Border radius for `<kbd>` elements.
+/// @type Number | List
+$keystroke-radius: $global-radius !default;
+
+/// Bottom border style for `<abbr>` elements.
+/// @type List
+$abbr-underline: 1px dotted $black !default;
+
+@mixin myapplication-typography-base {
+
+  // my styles here...
+  
+}

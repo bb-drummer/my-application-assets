@@ -1,0 +1,25 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group typography
+////
+
+// scss-lint:disable all
+
+@mixin myapplication-print-styles {
+  .show-for-print { display: none !important; }
+
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important; // Black prints faster: h5bp.com/s
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    .show-for-print { display: block !important; }
+    .hide-for-print { display: none !important; }
+  }
+}

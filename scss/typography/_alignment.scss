@@ -1,0 +1,22 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+@mixin myapplication-text-alignment {
+  @each $size in $breakpoint-classes {
+    @include breakpoint($size) {
+      @each $align in (left, right, center, justify) {
+        @if $size != 'small' {
+          //
+          // my (small) styles here...
+          //
+        }
+        @else {
+          //
+          // my (not-small) styles here...
+          //
+        }
+      }
+    }
+  }
+}

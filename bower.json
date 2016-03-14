@@ -1,0 +1,31 @@
+{
+  "name": "my-application/application-asstes",
+  "version": "0.0.1",
+  "main": [
+    "scss/myapplication.scss",
+    "dist/myapplication.js"
+  ],
+  "ignore": [
+    "config",
+    "docs",
+    "gulp",
+    "lib",
+    "test",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "gulpfile.js",
+    "meteor-README.md",
+    "package.js",
+    "package.json",
+    "sache.json",
+    ".editorconfig",
+    ".npm",
+    ".gitignore",
+    ".npmignore",
+    ".versions"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "what-input": "~1.1.2"
+  }
+}

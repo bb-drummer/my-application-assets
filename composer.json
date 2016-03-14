@@ -1,0 +1,40 @@
+{
+  "name": "my-application/application-assets",
+  "description": "[MyApplication] application base assets collection",
+  "version": "0.0.1",
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "js",
+    "my-application",
+    "framework"
+  ],
+  "homepage" : "http://my-application.net/",
+  "authors" : [ {
+    "name" : "Björn Bartels",
+    "email" : "development@bjoernbartels.earth",
+    "homepage" : "https://bjoernbartels.earth"
+  } ],
+  "support": {
+    "email": "development@bjoernbartels.earth",
+    "issues": "https://gitlab.bjoernbartels.earth/zf2/application-assets/issues",
+  },
+  "license": "Apache2.0",
+  "require" : {
+    "composer/installers" : "~1.0",
+  },
+  "extra" : {
+    "installer-name" : "application-assets",
+    "branch-alias" : {
+      "dev-master" : "master"
+    }
+  },
+  "autoload" : { },
+  "suggest" : { },
+  "scripts" : {
+    "post-install-cmd" : [ ],
+    "post-update-cmd" : [ ]
+  },
+  "type" : "zend-extra"
+}

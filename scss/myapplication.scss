@@ -1,0 +1,39 @@
+/**
+ * BB's Zend Framework 2 Components
+ * 
+ * myApplication cascading stylesheets
+ *   
+ * @package   [MyApplication]
+ * @package   BB's Zend Framework 2 Components
+ * @package   myApplication cascading stylesheets
+ * @author    Björn Bartels <development@bjoernbartels.earth>
+ * @link      https://gitlab.bjoernbartels.earth/groups/themes
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ * @copyright copyright (c) 2016 Björn Bartels <development@bjoernbartels.earth>
+ */
+
+// Sass utilities
+@import 'util/util';
+
+// Global variables and styles
+@import 'global';
+
+// Components
+@import 'typography/typography';
+
+@import 'components/modulename';
+
+@mixin myapplication-everything($flex: false) {
+  @include myapplication-global-styles;
+
+  @if not $flex {
+    // @include myapplication-grid;
+  }
+  @else {
+    //@include myapplication-flex-grid;
+  }
+
+  @include myapplication-typography;
+  
+  @include myapplication-modulename;
+}
