@@ -1,0 +1,79 @@
+
+// global border color
+$global-border-color: #ddd;
+
+// header
+$header-max-brandlogo-height: rem-calc(24) !default;
+
+
+// footer
+$footer-max-vendorlogo-height: rem-calc(20) !default;
+
+
+// navigation
+$navigation-border-radius: rem-calc(6) !default;
+$navigation-border-width: rem-calc(5) !default;
+$navigation-border-left-color: #ddd !default;
+$navigation-border-left-color-hover: $white !default;
+
+
+// breadcrumbs
+$breadcrumbs-caret-color: #ccc;
+$breadcrumbs-backgroung-color: $body-background;
+$breadcrumbs-border-radius: rem-calc(6);
+$breadcrumbs-border-color: $global-border-color;
+$breadcrumbs-border-width: rem-calc(1);
+
+
+// panel
+$panel-font-size: rem-calc(12);
+$panel-text-color: $body-font-color;
+$panel-background-color: $body-background;
+$panel-border-radius: rem-calc(6);
+$panel-border-color: $global-border-color;
+$panel-border-width: rem-calc(1);
+
+$panel-margin-top: rem-calc(0);
+$panel-margin-bottom: rem-calc(10);
+
+$panel-toolbar-font-size: $panel-font-size;
+$panel-toolbar-border-radius: $panel-border-radius;
+$panel-toolbar-border-color: $panel-border-color;
+$panel-toolbar-border-width: $panel-border-width;
+
+$panel-toolbar-text-color: $panel-text-color;
+$panel-toolbar-background-color: $secondary-color;
+
+$panel-toolbar-margin-top: rem-calc(0);
+$panel-toolbar-margin-bottom: rem-calc(10);
+
+
+// flashmessges
+$flashmessages-font-size: rem-calc(12);
+$flashmessages-button-close-height: rem-calc(14);
+$flashmessages-margin-top: rem-calc(0);
+$flashmessages-margin-bottom: rem-calc(10);
+
+$flashmessages-border-radius: rem-calc(6);
+$flashmessages-border-color: $global-border-color;
+$flashmessages-border-width: rem-calc(1);
+
+$flashmessages-background-color: $body-background;
+$flashmessages-background-color-info: $flashmessages-background-color;
+$flashmessages-background-color-warning: $warning-color;
+$flashmessages-background-color-error: $alert-color;
+$flashmessages-background-color-success: $success-color;
+
+$flashmessages-text-color: $panel-text-color;
+$flashmessages-text-color-info: $flashmessages-text-color;
+$flashmessages-text-color-warning: $flashmessages-text-color;
+$flashmessages-text-color-error: $flashmessages-text-color;
+$flashmessages-text-color-success: $white;
+
+
+// data-filter-form
+
+// admin-aclmatrix
+
+// admin-userprofile
+

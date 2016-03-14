@@ -1,0 +1,19 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group overrides/flagicons
+////
+
+@mixin myapplication-flagicons-overrides {
+
+	/* @group flag icons */
+	
+	.flag-icon-en {
+		background-image	: url(flag-icon-css/flags/us.svg);
+	}
+	
+	/* @end */
+
+}

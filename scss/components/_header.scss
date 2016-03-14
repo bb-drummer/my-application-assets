@@ -1,0 +1,23 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/header
+////
+$header-max-brandlogo-height: rem-calc(24);
+
+@mixin myapplication-header {
+
+	/* @group brand logo */
+	.navbar-brand {
+	
+		img {
+			height					: $header-max-brandlogo-height;
+			vertical-align			: top;
+			float					: left;
+		}
+		
+	}
+	/* @end */
+}

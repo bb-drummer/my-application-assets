@@ -1,0 +1,25 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/toolbar
+////
+$toolbar-font-size: rem-calc(12);
+$toolbar-button-close-height: rem-calc(14);
+$toolbar-margin-top: rem-calc(0);
+$toolbar-margin-bottom: rem-calc(10);
+
+$toolbar-border-radius: rem-calc(6);
+$toolbar-border-color: #ddd;
+$toolbar-border-width: rem-calc(1);
+
+$toolbar-background-color: $panel-background-color;
+$toolbar-text-color: $panel-text-color;
+
+$toolbar-text-color: $panel-background-color;
+
+@mixin myapplication-toolbar {
+
+
+}

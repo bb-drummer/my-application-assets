@@ -1,0 +1,89 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/panel
+////
+$panel-font-size: rem-calc(12);
+$panel-text-color: $body-font-color;
+$panel-background-color: $body-background;
+$panel-border-radius: rem-calc(6);
+$panel-border-color: $global-border-color;
+$panel-border-width: rem-calc(1);
+
+$panel-margin-top: rem-calc(0);
+$panel-margin-bottom: rem-calc(10);
+
+$panel-toolbar-font-size: $panel-font-size;
+$panel-toolbar-border-radius: $panel-border-radius;
+$panel-toolbar-border-color: $panel-border-color;
+$panel-toolbar-border-width: $panel-border-width;
+
+$panel-toolbar-text-color: $panel-text-color;
+$panel-toolbar-background-color: $secondary-color;
+
+$panel-toolbar-margin-top: rem-calc(0);
+$panel-toolbar-margin-bottom: rem-calc(10);
+
+@mixin myapplication-panel {
+
+	/* @group bootstrap components panel */
+
+	// ...
+	
+	/* @end */
+		
+
+	/* @group panel */
+	.panel-body + .panel-body {
+		border-top			: $panel-border-width solid $panel-border-color;
+	}
+
+		/* @group panel toolbar */
+		
+		.navbar-subnav {
+			border				: $panel-toolbar-border-width solid $panel-toolbar-border-color;
+			border-radius		: $panel-toolbar-border-radius $panel-toolbar-border-radius $panel-toolbar-border-radius $panel-toolbar-border-radius;
+			padding				: 7px 10px 5px 10px;
+			margin-top			: $panel-toolbar-margin-top;
+			margin-bottom		: $panel-toolbar-margin-bottom;
+			background-color	: $panel-background-color;
+		}
+		
+		.panel-default>.panel-heading > FORM, 
+		.panel-default>.panel-heading > .separator, 
+		.panel-default>.panel-heading > NAV , 
+		.panel-default>.panel-heading > NAV UL,
+		.panel-default>.panel-heading > NAV UL LI {
+			float				: left;
+			font-size			: $panel-font-size;
+			color				: $panel-text-color;
+		} 
+		
+		.panel-default>.panel-heading {
+			display				: block;
+			height				: 40px;
+		} 
+		
+		.panel-default>.panel-heading LABEL > SPAN  {
+			min-width			: 65px;
+			display				: inline-block;
+			margin-right		: 5px;
+		}
+		
+		.panel-default>.panel-heading > NAV UL,
+		.panel-default>.panel-heading > NAV UL LI {
+			list-style			: none;
+		}
+		
+		.panel-default>.panel-heading > NAV UL LI {
+			padding				: 2px;
+			margin				: 2px;
+		}
+		
+		/* @end */
+
+	/* @end */
+
+}

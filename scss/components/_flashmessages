@@ -1,0 +1,89 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/flashmessages
+////
+
+$flashmessages-font-size: $panel-font-size;
+$flashmessages-button-close-height: rem-calc(14);
+$flashmessages-margin-top: rem-calc(0);
+$flashmessages-margin-bottom: rem-calc(10);
+
+$flashmessages-border-radius: rem-calc(6);
+$flashmessages-border-color: #ddd;
+$flashmessages-border-width: rem-calc(1);
+
+$flashmessages-background-color: $panel-background-color;
+$flashmessages-background-color-info: $flashmessages-background-color;
+$flashmessages-background-color-warning: yellow;
+$flashmessages-background-color-error: red;
+$flashmessages-background-color-success: #57a900;
+
+$flashmessages-text-color: $panel-text-color;
+$flashmessages-text-color-info: $flashmessages-text-color;
+$flashmessages-text-color-warning: $flashmessages-text-color;
+$flashmessages-text-color-error: $flashmessages-text-color;
+$flashmessages-text-color-success: $white;
+
+
+@mixin myapplication-flashmessages {
+
+	/* @group flashmessages */
+	.flashmessages {
+	    clear				: both;
+	    border				: $flashmessages-border-width solid $flashmessages-border-color;
+	    border-radius		: $flashmessages-border-radius $flashmessages-border-radius $flashmessages-border-radius $flashmessages-border-radius;
+	    padding				: 7px 10px 5px 30px;
+	    margin-top			: $flashmessages-margin-top;
+	    margin-bottom		: $flashmessages-margin-bottom;
+	    font-size			: $flashmessages-font-size;
+	    background			: no-repeat 8px 7px;
+	    min-height			: 28px;
+	
+		.info {
+		    background-image	: url(../img/icons/info.gif);
+		}
+		
+		.warning {
+			color				: $flashmessages-text-color-warning;
+			background-color	: $flashmessages-background-color-warning;
+		    background-image	: url(../img/icons/icon_warning.gif);
+		}
+		
+		.error {
+			color				: $flashmessages-text-color-error;
+			background-color	: $flashmessages-background-color-error;
+		    background-image	: url(../img/icons/icon_fatalerror.gif);
+		}
+		
+		.success {
+			color				: $flashmessages-text-color-success;
+			background-color	: $flashmessages-background-color-success;
+		    background-image	: url(../img/icons/but_ok.gif);
+		}
+		
+		button.close {
+		    font-size			: $flashmessages-button-close-height;
+		    line-height			: $flashmessages-button-close-height;
+		    vertical-align		: middle;
+		}
+		
+		&.error {
+			button.close {
+				color				: $flashmessages-text-color-error;
+				opacity				: 1;
+			}
+		}
+		
+		&.success {
+			button.close {
+				color				: $flashmessages-text-color-success;
+				opacity				: .8;
+			}
+		}
+	}
+	/* @end */
+		
+}

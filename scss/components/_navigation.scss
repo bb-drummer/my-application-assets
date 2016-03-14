@@ -1,0 +1,66 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/navigation
+////
+$navigation-border-radius: rem-calc(6);
+$navigation-border-width: rem-calc(5);
+$navigation-border-left-color: #ddd;
+$navigation-border-left-color-hover: $white;
+
+@mixin myapplication-navigation {
+
+	/* @group multi-level navigation add on */
+	.dropdown-submenu {
+	
+	    position				: relative;
+	
+		>.dropdown-menu {
+		    top						: 0;
+		    left					: 100%;
+		    margin-top				: -$navigation-border-radius;
+		    margin-left				: -1px;
+		    -webkit-border-radius	: 0 $navigation-border-radius $navigation-border-radius $navigation-border-radius;
+		    -moz-border-radius		: 0 $navigation-border-radius $navigation-border-radius;
+		    border-radius			: 0 $navigation-border-radius $navigation-border-radius $navigation-border-radius;
+		}
+		
+		&:hover > .dropdown-menu {
+		    display			: block;
+		}
+		
+		> a:after {
+		    display				: block;
+		    content				: " ";
+		    float				: right;
+		    width				: 0;
+		    height				: 0;
+		    border-color		: transparent;
+		    border-style		: solid;
+		    border-width		: $navigation-border-width 0 $navigation-border-width $navigation-border-width;
+		    border-left-color	: $navigation-border-left-color;
+		    margin-top			: $navigation-border-width;
+		    margin-right		: -10px;
+		}
+		
+		&:hover > a:after {
+		    border-left-color	: $navigation-border-left-color-hover;
+		}
+		
+		.pull-left {
+		    float: none;
+		
+			> .dropdown-menu {
+			    left					: -100%;
+			    margin-left				: 10px;
+			    -webkit-border-radius	: $navigation-border-radius 0 $navigation-border-radius $navigation-border-radius;
+			    -moz-border-radius		: $navigation-border-radius 0 $navigation-border-radius $navigation-border-radius;
+			    border-radius			: $navigation-border-radius 0 $navigation-border-radius $navigation-border-radius;
+			}
+		}
+	}
+	/* @end */
+
+}

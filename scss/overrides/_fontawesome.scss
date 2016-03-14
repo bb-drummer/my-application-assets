@@ -1,0 +1,20 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group overrides/fontawesome
+////
+
+@mixin myapplication-fontawesome-overrides {
+
+	/* @group font-awesome icons overrides */
+	
+	.fa {
+	    min-width	: 16px;
+	    text-align	: center;
+	}
+	
+	/* @end */
+		
+}

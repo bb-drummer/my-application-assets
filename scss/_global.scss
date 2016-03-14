@@ -112,9 +112,27 @@ $myapplication-colors: (
   warning: $warning-color,
 ) !default;
 
+
 @mixin myapplication-global-styles {
 
-  // .. my (global) styles here...
+    BODY {
+		background-color	: $body-background;
+	}
+	
+	.element-invisible, 
+	.hide, 
+	.hidden {
+		display				: none;
+	}
+
+	.debuginfo {
+		display				:  none;
+	}
+
+	.info	 {}
+	.success {}
+	.warn    { background-color	: #ffff00; }
+	.error   { background-color	: #ff0000; color	: #ffffff; }
 
 }
 

@@ -12,28 +12,88 @@
  * @copyright copyright (c) 2016 Björn Bartels <development@bjoernbartels.earth>
  */
 
+// vendor framework default overrides
+@import 'overrides/bootstrap';
+@import 'overrides/foundation';
+@import 'overrides/fontawesome';
+@import 'overrides/flagicons';
+
 // Sass utilities
 @import 'util/util';
 
 // Global variables and styles
 @import 'global';
+@import 'settings/myapplication';
 
 // Components
 @import 'typography/typography';
 
-@import 'components/modulename';
+@import 'components/http-status-colors';
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/navigation';
+@import 'components/breadcrumbs';
+
+@import 'components/panel';
+@import 'components/flashmessages';
+@import 'components/data-filter-form';
+
+@import 'modules/admin-aclmatrix';
+@import 'modules/admin-userprofile';
+// @import 'modules/modulename';
 
 @mixin myapplication-everything($flex: false) {
-  @include myapplication-global-styles;
-
-  @if not $flex {
-    // @include myapplication-grid;
-  }
-  @else {
-    //@include myapplication-flex-grid;
-  }
-
-  @include myapplication-typography;
   
-  @include myapplication-modulename;
+  /* @group vendor framework overrides */
+
+	  @include myapplication-bootstrap-overrides;
+	  @include myapplication-foundation-overrides;
+	  @include myapplication-fontawesome-overrides;
+	  @include myapplication-flagicons-overrides;
+
+  /* @end */
+  
+  
+  /* @group basic styles */
+  
+	  @include myapplication-global-styles;
+	  @if not $flex {
+	    // @include myapplication-grid;
+	  }
+	  @else {
+	    //@include myapplication-flex-grid;
+	  }
+	  @include myapplication-typography;
+	  @include myapplication-http-status-colors;
+	  
+  /* @end */
+  
+  
+  /* @group component styles */
+	  
+	  @include myapplication-header;
+	  @include myapplication-footer;
+	  @include myapplication-navigation;
+	  @include myapplication-breadcrumbs;
+	  
+	  @include myapplication-panel;
+	  @include myapplication-flashmessages;
+	  @include myapplication-data-filter-form;
+	  // @include myapplication-componentname;
+	  
+  /* @end */
+  
+  /* @group module styles */
+  
+	  /* @group admin module */
+	  
+		  @include myapplication-admin-aclmatrix;
+		  @include myapplication-admin-userprofile;
+		  // @include myapplication-modulename;
+		  
+ 	 /* @end */
+
+  /* @end */
+  
 }

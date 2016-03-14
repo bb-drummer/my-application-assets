@@ -1,0 +1,27 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/footer
+////
+$footer-max-vendorlogo-height: rem-calc(20);
+
+@mixin myapplication-footer {
+
+	/* @group Site Footer */
+	footer {
+	
+		.poweredby {
+		
+			// max footer vendor-logo height
+			img {
+			    max-height: $footer-max-vendorlogo-height;
+			}
+			
+		}
+		
+	}
+	/* @end */
+
+}

@@ -1,0 +1,49 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group components/http-status-colors
+////
+$http-200-background-color: #00ff66;
+$http-304-background-color: #aaff66;
+$http-300-background-color: #3366ff;
+$http-301-background-color: #6699ff;
+$http-302-background-color: #99ccff;
+$http-303-background-color: #ccffff;
+$http-400-background-color: #ffff00;
+$http-401-background-color: #ffdd00;
+$http-402-background-color: #ffbb00;
+$http-403-background-color: #ff9900;
+$http-404-background-color: #ff6600;
+$http-500-background-color: #ff0000;
+$http-501-background-color: #dd2222;
+$http-502-background-color: #bb4444;
+$http-503-background-color: #996666;
+
+$http-500-text-color: $white;
+$http-501-text-color: $http-500-text-color;
+$http-502-text-color: $http-500-text-color;
+$http-503-text-color: $http-500-text-color;
+
+@mixin myapplication-http-status-colors {
+
+	/* @group status code colors */
+	.http200 { background-color	: $http-200-background-color; }
+	.http304 { background-color	: $http-304-background-color; }
+	.http300 { background-color	: $http-300-background-color; }
+	.http301 { background-color	: $http-301-background-color; }
+	.http302 { background-color	: $http-302-background-color; }
+	.http303 { background-color	: $http-303-background-color; }
+	.http400 { background-color	: $http-400-background-color; }
+	.http401 { background-color	: $http-401-background-color; }
+	.http402 { background-color	: $http-402-background-color; }
+	.http403 { background-color	: $http-403-background-color; }
+	.http404 { background-color	: $http-404-background-color; }
+	.http500 { background-color	: $http-500-background-color; color	: $http-500-text-color; }
+	.http501 { background-color	: $http-501-background-color; color	: $http-501-text-color; }
+	.http502 { background-color	: $http-502-background-color; color	: $http-502-text-color; }
+	.http503 { background-color	: $http-503-background-color; color	: $http-503-text-color; }
+	/* @end status code colors */
+
+}

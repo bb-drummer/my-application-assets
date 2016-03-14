@@ -1,0 +1,77 @@
+// MyApplication application base assets collection
+// my-application.net
+// BSD-Licensed
+
+////
+/// @group modules/admin-aclmatrix
+////
+
+@mixin myapplication-admin-aclmatrix {
+
+	/* @group acl matrix */
+	
+	.table.matrix {
+	
+		> thead:first-child > tr:first-child > th,
+		> tbody > tr > td {
+			max-width			: 70px;
+			vertical-align		: top;
+			text-align			: center;
+		}
+		
+		> thead:first-child > tr:first-child > th:first-child {
+			width				: auto;
+			max-width			: none;
+		}
+		
+		> tbody > tr > th {
+			vertical-align		: middle;
+		}
+		
+		> tbody > tr > td > form {
+			float				: none;
+			display				: inline-block;
+		}
+
+		form {
+			padding				: 0px;
+		
+			select {
+				min-width			: 0px;
+				float				: left;
+			}
+			
+			input {
+				width				: 20px;
+				float				: left;
+				clear				: none;
+				margin-left			: 2px;
+				min-width			: 0px;
+				
+				&.btn {
+					text-indent			: -999em;
+					height				: 20px;
+					width				: 20px;
+					padding				: 0px;
+					margin              : 2px;
+				}
+			}
+			
+			input.btn.disabled, 
+			input.btn[disabled], 
+			fieldset[disabled] input.btn {
+				pointer-events		: none;
+				cursor				: not-allowed;
+				opacity				: .35;
+				filter				: alpha(opacity=65);
+				-webkit-box-shadow	: none;
+				box-shadow			: none;
+			}
+		
+		}
+		
+	}
+	
+	/* @end */
+
+}
