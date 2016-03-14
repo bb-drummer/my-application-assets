@@ -1,0 +1,415 @@
+@charset "UTF-8";
+/**
+ * BB's Zend Framework 2 Components
+ * 
+ * myApplication cascading stylesheets
+ *   
+ * @package   [MyApplication]
+ * @package   BB's Zend Framework 2 Components
+ * @package   myApplication cascading stylesheets
+ * @author    Björn Bartels <development@bjoernbartels.earth>
+ * @link      https://gitlab.bjoernbartels.earth/groups/themes
+ * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ * @copyright copyright (c) 2016 Björn Bartels <development@bjoernbartels.earth>
+ */
+.show-for-print {
+  display: none !important; }
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important; }
+  .show-for-print {
+    display: block !important; }
+  .hide-for-print {
+    display: none !important; } }
+
+/* @group MyApplication styles */
+BODY {
+  background-color: #f7f7f7; }
+
+.element-invisible, .hide, .hidden {
+  display: none; }
+
+.debuginfo {
+  display: none; }
+
+/* @group Site Footer */
+FOOTER .poweredby img {
+  max-height: 1.2rem; }
+
+/* @end */
+/* @group multi-level navigation add on */
+.navbar-brand IMG {
+  height: 24px;
+  vertical-align: top;
+  float: left; }
+
+.dropdown-submenu {
+  position: relative; }
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px; }
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block; }
+
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ddd;
+  margin-top: 5px;
+  margin-right: -10px; }
+
+.dropdown-submenu:hover > a:after {
+  border-left-color: #fff; }
+
+.dropdown-submenu.pull-left {
+  float: none; }
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px; }
+
+/* @end */
+/* @group breadcrumbs */
+.breadcrumb {
+  border: 1px solid #ddd;
+  border-radius: 6px 6px 6px 6px;
+  padding: 7px 10px 5px 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background-color: #F5F5F5;
+  list-style: none; }
+
+.breadcrumb > li.header + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: " ";
+  display: none; }
+
+.breadcrumb > li + li:before {
+  padding: 0 0px;
+  color: #ccc;
+  content: "/\00a0"; }
+
+/* @end */
+/* @group toolbar */
+/* @end */
+/* @group panel sublevel navigation */
+.navbar-subnav {
+  border: 1px solid #ddd;
+  border-radius: 6px 6px 6px 6px;
+  padding: 7px 10px 5px 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  background-color: #F5F5F5; }
+
+.panel-default > .panel-heading > FORM,
+.panel-default > .panel-heading > .separator,
+.panel-default > .panel-heading > NAV,
+.panel-default > .panel-heading > NAV UL,
+.panel-default > .panel-heading > NAV UL LI {
+  float: left;
+  font-size: 12px; }
+
+.panel-default > .panel-heading {
+  display: block;
+  height: 40px; }
+
+.panel-default > .panel-heading LABEL > SPAN {
+  min-width: 65px;
+  display: inline-block;
+  margin-right: 5px; }
+
+.panel-default > .panel-heading > NAV UL,
+.panel-default > .panel-heading > NAV UL LI {
+  list-style: none; }
+
+.panel-default > .panel-heading > NAV UL LI {
+  padding: 2px;
+  margin: 2px; }
+
+/* @end */
+/* @group status code colors */
+.http200 {
+  background-color: #00ff66; }
+
+.http304 {
+  background-color: #aaff66; }
+
+.http300 {
+  background-color: #3366ff; }
+
+.http301 {
+  background-color: #6699ff; }
+
+.http302 {
+  background-color: #99ccff; }
+
+.http303 {
+  background-color: #ccffff; }
+
+.http400 {
+  background-color: #ffff00; }
+
+.http401 {
+  background-color: #ffdd00; }
+
+.http402 {
+  background-color: #ffbb00; }
+
+.http403 {
+  background-color: #ff9900; }
+
+.http404 {
+  background-color: #ff6600; }
+
+.http500 {
+  background-color: #ff0000;
+  color: #ffffff; }
+
+.http501 {
+  background-color: #dd2222;
+  color: #ffffff; }
+
+.http502 {
+  background-color: #bb4444;
+  color: #ffffff; }
+
+.http503 {
+  background-color: #996666;
+  color: #ffffff; }
+
+.warn {
+  background-color: #ffff00; }
+
+.error {
+  background-color: #ff0000;
+  color: #ffffff; }
+
+/* @end status code colors */
+/* @group flashmessages */
+.flashmessages {
+  clear: both;
+  border: 1px solid #ddd;
+  border-radius: 6px 6px 6px 6px;
+  padding: 7px 10px 5px 30px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  background: no-repeat 8px 7px;
+  min-height: 28px; }
+
+.flashmessages.info {
+  background-image: url(../img/icons/info.gif); }
+
+.flashmessages.warning {
+  color: black;
+  background-color: yellow;
+  background-image: url(../img/icons/icon_warning.gif); }
+
+.flashmessages.error {
+  color: black;
+  background-color: red;
+  background-image: url(../img/icons/icon_fatalerror.gif); }
+
+.flashmessages.success {
+  color: white;
+  background-color: #57a900;
+  background-image: url(../img/icons/but_ok.gif); }
+
+.flashmessages button.close {
+  font-size: 14px;
+  line-height: 14px;
+  vertical-align: middle; }
+
+.flashmessages.error button.close {
+  color: yellow;
+  opacity: 1; }
+
+.flashmessages.success button.close {
+  color: white;
+  opacity: .8; }
+
+/* @end */
+/* @group data filter form */
+.filterform FORM INPUT, .filterform FORM SELECT {
+  width: auto;
+  min-width: 0px;
+  height: 20px;
+  padding: auto; }
+
+.filterform FORM LABEL {
+  float: left; }
+
+.filterform FORM INPUT[type="submit"] {
+  float: right;
+  height: 20px;
+  margin: -1px 0px 0px 5px;
+  clear: none; }
+
+.filterform FORM[name="events"] LABEL SPAN {
+  display: none; }
+
+.filterform FORM SPAN.label {
+  float: left;
+  max-width: 75px;
+  min-width: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  color: #333;
+  font-size: 11px; }
+
+.filterform FORM SPAN.label:after {
+  content: ':';
+  margin-right: 5px; }
+
+/* @end */
+/* @group bootstrap overrides */
+.navbar-inverse {
+  border-radius: 0px; }
+
+.navbar .navbar-brand {
+  margin-left: -15px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  width: auto;
+  white-space: nowrap; }
+
+.jumbotron button.close {
+  font-size: 30px; }
+
+.row button.close {
+  margin-right: 10px;
+  margin-top: 3px; }
+
+/* @end */
+/* @group font-awesome icons overrides */
+.fa {
+  min-width: 16px;
+  text-align: center; }
+
+/* @end */
+/* @group flag icons */
+.flag-icon-en {
+  background-image: url(flag-icon-css/flags/us.svg); }
+
+/* @end */
+/* @group responsiveness / media overrides */
+/* @end */
+/* @end */
+/* @group bootstrap components panel */
+/* @group panel */
+.panel-body + .panel-body {
+  border-top: 1px solid #ddd; }
+
+/* @end */
+/* @end */
+/* @group Admin Module styles */
+/* @group user profile */
+.panel-user-profile {
+  padding-top: 0px;
+  padding-bottom: 0px; }
+
+.panel-user-profile .panel.panel-default {
+  border-radius: 0px;
+  margin: 0.5% !important;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-left: 1px;
+  border-right: 1px;
+  border-top: 0px;
+  border-bottom: 1px; }
+
+@media (min-width: 768px) and (min-width: 992px) {
+  .panel-user-profile .panel.panel-default.col-md-6 {
+    width: 49%; } }
+
+@media (max-width: 767px) {
+  .panel-user-profile .panel.panel-default {
+    border-radius: 0px;
+    margin: 0px !important;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-left: 0px none;
+    border-right: 0px none;
+    border-bottom: 0px; }
+  .panel-user-profile .panel.panel-default:first-child {
+    border-top: 0px; } }
+
+/* @end */
+/* @group user admin */
+.table.matrix > THEAD:first-child > TR:first-child > TH,
+.table.matrix > TBODY > TR > TD {
+  max-width: 70px;
+  vertical-align: top;
+  text-align: center; }
+
+.table.matrix > THEAD:first-child > TR:first-child > TH:first-child {
+  width: auto;
+  max-width: none; }
+
+.table.matrix > TBODY > TR > TH {
+  vertical-align: middle; }
+
+.table.matrix > TBODY > TR > TD > FORM {
+  float: none;
+  display: inline-block; }
+
+/* @end */
+/* @group acl matrix form display */
+.matrix FORM {
+  padding: 0px; }
+
+.matrix FORM {
+  padding: 0px; }
+
+.matrix FORM SELECT {
+  min-width: 0px;
+  float: left; }
+
+.matrix FORM INPUT {
+  width: 20px;
+  float: left;
+  clear: none;
+  margin-left: 2px;
+  min-width: 0px; }
+
+.matrix FORM INPUT.btn {
+  text-indent: -999em;
+  height: 20px;
+  width: 20px;
+  padding: 0px;
+  margin: 2px; }
+
+.matrix FORM input.btn.disabled,
+.matrix FORM input.btn[disabled],
+.matrix FORM fieldset[disabled] input.btn {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .35;
+  filter: alpha(opacity=65);
+  box-shadow: none; }
+
+/* @end */
+/* @group responsiveness / media overrides */
+/* @end */
+/* @end */
+
+/*# sourceMappingURL=myapplication.css.map */

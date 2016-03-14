@@ -1,14 +1,13 @@
 //  [MyApplication] Settings
-//  -----------------------------
+//  ------------------------
 //
 //  Table of Contents:
 //
 //   1. Global
 //   2. Breakpoints
-//   3. Base Typography
-//   4. Typography Helpers
-//
-//
+//   3. Modulename
+//   4. Typography Base
+//   5. Typography Helpers
 
 @import 'util/util';
 
@@ -51,7 +50,12 @@ $breakpoints: (
 );
 $breakpoint-classes: (small medium large);
 
-// 3. Base Typography
+// 3. Modulename
+// -------------
+
+$module-var: 'value';
+
+// 4. Typography Base
 // ------------------
 
 $header-font-family: $body-font-family;
@@ -119,7 +123,7 @@ $keystroke-padding: rem-calc(2 4 0);
 $keystroke-radius: $global-radius;
 $abbr-underline: 1px dotted $black;
 
-// 4. Typography Helpers
+// 5. Typography Helpers
 // ---------------------
 
 $lead-font-size: $global-font-size * 1.25;
@@ -131,6 +135,3 @@ $subheader-margin-top: 0.2rem;
 $subheader-margin-bottom: 0.5rem;
 $stat-font-size: 2.5rem;
 
-
-// 5. MyApplication settings 
-// -------------------------

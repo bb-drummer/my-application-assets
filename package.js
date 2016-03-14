@@ -1,7 +1,7 @@
 Package.describe({
   name: 'my-application:myapplication-assets',
   summary: '[MyApplication] application base assets collection',
-  version: '0.0.1',
+  version: '',
   git: 'https://gitlab.bjoernbartels.earth/zf2/application-assets.git',
   documentation: 'README.md'
 });

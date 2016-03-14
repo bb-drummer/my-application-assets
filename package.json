@@ -1,6 +1,6 @@
 {
   "name": "my-application/application-assets",
-  "version": "0.0.1",
+  "version": "",
   "main": "dist/myapplication.js",
   "description": "[MyApplication] assets collection",
   "author": "Björn Bartels <development@bjoernbartels.earth>",

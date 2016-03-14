@@ -1,6 +1,6 @@
 {
   "name": "my-application/application-assets",
-  "version": "0.0.1",
+  "version": "",
   "main": [
     "scss/myapplication.scss",
     "dist/myapplication.js"

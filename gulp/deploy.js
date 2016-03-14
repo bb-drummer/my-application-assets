@@ -103,9 +103,9 @@ gulp.task('deploy:settings', function(cb) {
 
 // Writes a commit with the changes to the version numbers
 gulp.task('deploy:commit', function(cb) {
-  exec('git commit -am "Bump to version "' + NEXT_VERSION);
-  exec('git tag v' + NEXT_VERSION);
-  exec('git push origin develop --follow-tags');
+  //exec('git commit -am "Bump to version "' + NEXT_VERSION);
+  //exec('git tag v' + NEXT_VERSION);
+  //exec('git push origin develop --follow-tags');
   cb();
 });
 
