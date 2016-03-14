@@ -1,5 +1,5 @@
 {
-  "name": "my-application/application-asstes",
+  "name": "my-application/application-assets",
   "version": "0.0.1",
   "main": [
     "scss/myapplication.scss",
