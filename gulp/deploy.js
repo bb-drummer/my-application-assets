@@ -105,21 +105,21 @@ gulp.task('deploy:settings', function(cb) {
 
 // Writes a commit with the changes to the version numbers
 gulp.task('deploy:commit', function(cb) {
-  /*exec('git add .');
+  exec('git add .');
   exec('git commit -m "update css, js, assets"');
-  exec('git push');*/
+  exec('git push');
   cb();
 });
 
 // Uploads the documentation to the live server
 gulp.task('deploy:docs', ['build'], function() {
   return gulp.src('./_build/**')
-    .pipe(confirm('Make sure everything looks right before you deploy.'))
+    /* .pipe(confirm('Make sure everything looks right before you deploy.'))
     .pipe(rsync({
       root: './_build',
       hostname: 'deployer@72.32.134.77',
       destination: '/home/deployer/sites/myapplication-docs'
-    }));
+    }))*/;
 });
 
 // The Customizer runs this function to generate files it needs
