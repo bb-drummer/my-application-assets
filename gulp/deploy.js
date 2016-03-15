@@ -33,7 +33,7 @@ var CURRENT_VERSION = require('../package.json').version;
 var NEXT_VERSION;
 
 gulp.task('deploy', function(cb) {
-  sequence('deploy:prompt', 'deploy:version', 'deploy:dist', 'deploy:settings', 'deploy:commit', cb);
+  sequence('deploy:settings', 'deploy:prompt', 'deploy:version', 'deploy:dist', 'deploy:commit', cb);
 });
 
 gulp.task('deploy:prompt', function(cb) {
