@@ -62,7 +62,7 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 /* @end */
 /* @group flag icons */
 .flag-icon-en {
-  background-image: url(flag-icon-css/flags/us.svg); }
+  background-image: url(vendor/flag-icon-css/flags/us.svg); }
 
 /* @end */
 /* @end */
