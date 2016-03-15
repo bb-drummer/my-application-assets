@@ -7,4 +7,10 @@
 ////
 
 @mixin myapplication-foundation-overrides {
+
+	// button margins
+	.button,
+	.button-group {
+		margin-bottom: 0;
+	}
 }

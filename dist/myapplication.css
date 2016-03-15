@@ -54,6 +54,10 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
   margin-top: 3px; }
 
 /* @end */
+.button,
+.button-group {
+  margin-bottom: 0; }
+
 /* @group font-awesome icons overrides */
 .fa {
   min-width: 16px;
