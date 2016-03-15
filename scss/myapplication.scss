@@ -21,6 +21,8 @@
 // Sass utilities
 @import 'util/util';
 
+@import 'mixins';
+
 // Global variables and styles
 @import 'global';
 @import 'settings/myapplication';

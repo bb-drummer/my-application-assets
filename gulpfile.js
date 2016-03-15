@@ -14,7 +14,7 @@ gulp.task('serve', ['build'], function(){
 });
 
 // Runs all of the above tasks and then waits for files to change
-gulp.task('default', ['serve'], function() {
+gulp.task('default', ['build'], function() {
   gulp.watch('docs/**/*', ['docs', browser.reload]);
   gulp.watch(['docs/layout/*.html', 'docs/partials/*.html'], ['docs:all', browser.reload]);
   gulp.watch('scss/**/*', ['sass', browser.reload]);

@@ -37,14 +37,16 @@ gulp.task('deploy', function(cb) {
 });
 
 gulp.task('deploy:prompt', function(cb) {
-  inquirer.prompt([{
+  NEXT_VERSION = CURRENT_VERSION;
+  cb();
+  /*inquirer.prompt([{
     type: 'input',
     name: 'version',
     message: 'What version are we moving to? (Current version is ' + CURRENT_VERSION + ')'
   }], function(res) {
     NEXT_VERSION = res.version;
     cb();
-  });
+  });*/
 });
 
 // Bumps the version number in any file that has one
@@ -103,9 +105,9 @@ gulp.task('deploy:settings', function(cb) {
 
 // Writes a commit with the changes to the version numbers
 gulp.task('deploy:commit', function(cb) {
-  //exec('git commit -am "Bump to version "' + NEXT_VERSION);
-  //exec('git tag v' + NEXT_VERSION);
-  //exec('git push origin develop --follow-tags');
+  /*exec('git add .');
+  exec('git commit -m "update css, js, assets"');
+  exec('git push');*/
   cb();
 });
 
