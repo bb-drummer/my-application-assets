@@ -9,6 +9,10 @@ requireDir('./gulp');
 
 //Writes a commit with the changes to the version numbers
 gulp.task('commit', function(cb) {
+
+  gulp.src('dist/**/*')
+    .pipe(gulp.dest('../application-base/public/assets/dist'));
+
   exec('git add .');
   exec('git commit -m "update css, js, assets"');
   exec('git push');
