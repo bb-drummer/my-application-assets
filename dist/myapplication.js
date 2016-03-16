@@ -473,7 +473,7 @@ if (!jQuery) {
 	 * 
 	 * @return MyApplication
 	 */
-	MyApplication.initDatatables = function () {
+	/*MyApplication.initDatatables = function () {
 		if (!$.fn.dataTable) {
 			console.warn('jQuery dataTable plug-in not found...');
 			return;
@@ -530,7 +530,7 @@ if (!jQuery) {
 		});
 		
 		return (this);
-	};
+	};*/
 	
 	/**
 	 * init acl matrix/table ajax triggers
@@ -788,7 +788,7 @@ if (!jQuery) {
 		} catch (ex) {}
 		
 		try {
-			if (MyApplication.initDatatables) { MyApplication.initDatatables(); }
+			/*if (MyApplication.initDatatables) { MyApplication.initDatatables(); }*/
 		} catch (ex) {}
 		
 		try {
