@@ -90,7 +90,7 @@
 			// action columns
 			if ($table.find('THEAD TH.actions').size() > 0) {
 				$columns.push(null);
-		        $columnDefs = [ {
+		        var $columnDefs = [ {
 		            targets : -1,
 		            data : "_actions_",
 		            sortable : false,
