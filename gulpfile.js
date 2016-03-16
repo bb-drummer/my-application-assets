@@ -1,12 +1,23 @@
 var gulp = require('gulp');
 var browser = require('browser-sync');
 var requireDir = require('require-dir');
+var exec = require('child_process').execSync;
 var port = process.env.SERVER_PORT || 3000;
 
 requireDir('./gulp');
 
+
+//Writes a commit with the changes to the version numbers
+gulp.task('commit', function(cb) {
+  exec('git add .');
+  exec('git commit -m "update css, js, assets"');
+  exec('git push');
+  cb();
+});
+
+
 // Builds the documentation and framework files
-gulp.task('build', ['clean', 'copy', 'docs:all', 'sass', 'javascript', 'deploy']);
+gulp.task('build', ['clean', 'copy', 'docs:all', 'sass', 'javascript', 'deploy', 'commit']);
 
 // Starts a BrowerSync instance
 gulp.task('serve', ['build'], function(){
