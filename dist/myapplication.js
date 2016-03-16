@@ -14,6 +14,7 @@
 !function($) {
 "use strict";
 
+
 var MYAPPLICATION_VERSION = '';
 
 // Global [MyApplication] object
