@@ -838,7 +838,7 @@ function parseStyleToObject(str) {
 		MyApplication.unregisterPlugin(this);
   };
   
-  MyApplication.plugin(Datatable, 'MyApplicationDatatable');
+  MyApplication.plugin(Datatable, 'MyappDatatable');
   
 }(jQuery, window.MyApplication);
 /**
