@@ -441,6 +441,207 @@ if (!MyApplication.Config) {
 	};
 }
 
+;(function ($, window, document, MyApplication, undefined) {
+  'use strict';
+
+
+  MyApplication.libs.myUtility = {
+    name : 'myutility',
+
+    version : '0.0.1',
+
+    settings : {
+      callback : function () {}
+    },
+
+    init : function (scope, method, options) {
+      var self = this;
+      // MyApplication.inherit(this, 'modulename1 modulename2');
+
+      this.bindings(method, options);
+    },
+
+    events : function () {
+      var self = this,
+          S = this.S;
+
+      $(this.scope).off('.alert').on('click.myapp.myutility', '[' + this.attr_name() + '] .close', function (e) {
+        var alertBox = S(this).closest('[' + self.attr_name() + ']'),
+            settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;
+
+        e.preventDefault();
+        if (Modernizr.csstransitions) {
+          alertBox.addClass('myutility-close');
+          alertBox.on('transitionend webkitTransitionEnd oTransitionEnd', function (e) {
+            S(this).trigger('close.fndtn.myutility').remove();
+            settings.callback();
+          });
+        } else {
+          alertBox.fadeOut(300, function () {
+            S(this).trigger('close.fndtn.myutility').remove();
+            settings.callback();
+          });
+        }
+      });
+    },
+
+    reflow : function () {}
+  };
+
+  // code, private functions, etc here...
+
+  MyApplication.myUtility = {
+    // public properties, methods here 
+  };
+  
+})(jQuery, window, document, window.MyApplication);
+
+
+
+/**
+ * jQuery DataTable module.
+ * @module myapplication.datatable
+ * @requires jQuery.datatable
+ */
+!function($, MyApplication){
+  'use strict';
+
+  /**
+   * initializes jQuery DataTable objects on page...
+   * 
+   * @class Datatable
+   * @param {mixed} parameters - ...
+   */
+  function Datatable(element, options){
+		if (!$.fn.dataTable) {
+			console.warn('jQuery dataTable plug-in not found...');
+			return;
+		}
+		
+	    this.$element = element;
+	    this.options = $.extend({}, Datatable.defaults, this.$element.data(), options);
+
+		this._init();
+ 
+		MyApplication.registerPlugin(this);
+  }
+  
+  Datatable.defaults = {
+		/**
+		 * options and default settings...
+		 * @option
+		 * @example 'value'
+		 */
+		//var: value
+  };
+  
+  /**
+   * Initializes the component object ...
+   * @private
+   */
+  Datatable.prototype._init = function(){
+	  	// ... init stuff
+	  	this._datatable();
+	  
+		this._events();
+
+ 
+  };
+  
+  /**
+   * Initializes the component object ...
+   * @private
+   */
+  Datatable.prototype._datatable = function () {
+    var $id = this.$element.attr('id');
+
+	var $table = $(this.$element),
+		$lang_url = MyApplication.Config.dataTable.langURLs[MyApplication.Config.lang],
+		datatableOptions = $.extend({
+			renderer : ((typeof Foundation != 'undefined') ? 'foundation' : 'bootstrap'),
+			language : {
+				url : $lang_url
+			},
+			stateSave : MyApplication.Config.dataTable.stateSave,
+			stateDuration : MyApplication.Config.dataTable.stateDuration  // sec * min * h * d
+		}, this.options)
+	;
+	
+	// has data source and is 'CRUD' table?
+	var $src = $($table).data("src");
+	if ( $src && $($table).hasClass('crud') ) {
+		// set ajax options
+		datatableOptions.ajax = {
+			url : $src,
+			type : "POST"
+		};
+		// set (data) columns, read from TH's 'data-column' attribute
+		var $columns = false;
+		$table.find('THEAD TH').each(function () {
+			var columnname = $(this).data("column");
+			if (columnname) {
+				if (!$columns) { $columns = []; }
+				$columns.push({
+					data : columnname
+				});
+			}
+		});
+		if ($columns) {
+			// action columns
+			if ($table.find('THEAD TH.actions').size() > 0) {
+				$columns.push(null);
+		        $columnDefs = [ {
+		            targets : -1,
+		            data : "_actions_",
+		            sortable : false,
+		            searchable : false
+		        } ];
+		        datatableOptions.columnDefs = $columnDefs;
+			}
+			datatableOptions.columns = $columns;
+		}
+	}
+	
+	var $dataTable=  $table.dataTable(datatableOptions);
+  
+	return $dataTable;
+	
+  };
+
+
+  /**
+   * Initializes the component events ...
+   * @private
+   */
+  Datatable.prototype._events = function(){
+  };
+
+
+  /**
+   * Destroys the Component.
+   * @function
+   */
+  Dropdown.prototype.destroy = function(){
+		// ... clean up stuff
+
+		MyApplication.unregisterPlugin(this);
+  };
+  
+  MyApplication.plugin(Datatable, 'Datatable');
+  
+}(jQuery, window.MyApplication);
+/**
+ * 
+ */
+/**
+ * 
+ */
+/**
+ * 
+ */
+/**
+ * 
+ */
 /**
  * BB's Zend Framework 2 Components
  * 
@@ -783,6 +984,8 @@ if (!jQuery) {
 	// init application components
 	//
 	$doc.ready(function () {
+		$(document).myapplication();
+		
 		try {
 			if (MyApplication.initCTAXHRModals) { MyApplication.initCTAXHRModals(); }
 		} catch (ex) {}

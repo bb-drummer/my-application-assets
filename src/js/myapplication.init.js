@@ -340,6 +340,8 @@ if (!jQuery) {
 	// init application components
 	//
 	$doc.ready(function () {
+		$(document).myapplication();
+		
 		try {
 			if (MyApplication.initCTAXHRModals) { MyApplication.initCTAXHRModals(); }
 		} catch (ex) {}

@@ -4,7 +4,10 @@ var concat = require('gulp-concat');
 var MYAPPLICATION = [
   'src/js/myapplication.core.js',
   'src/js/myapplication.config.js',
-  'src/js/*.js'
+  'src/js/libs/*.js',
+  'src/js/components/*.js',
+  'src/js/modules/*.js',
+  'src/js/myapplication.init.js'
 ];
 
 var DEPS = [
