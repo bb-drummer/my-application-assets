@@ -17,15 +17,15 @@ gulp.task('commit', function(cb) {
 
 
 // Builds the documentation and framework files
-gulp.task('build', ['clean', 'copy', 'docs:all', 'sass', 'javascript', 'deploy', 'commit']);
+gulp.task('build', ['clean', 'copy', 'docs:all', 'sass', 'javascript', 'deploy']);
 
 // Starts a BrowerSync instance
 gulp.task('serve', ['build'], function(){
   browser.init({server: './_build', port: port});
 });
 
-// Runs all of the above tasks and then waits for files to change
-gulp.task('default', ['build'], function() {
+//Runs all of the above tasks and then waits for files to change
+gulp.task('watch', ['build'], function() {
   gulp.watch('src/docs/**/*', ['docs', browser.reload]);
   gulp.watch(['src/docs/layout/*.html', 'src/docs/partials/*.html'], ['docs:all', browser.reload]);
   gulp.watch('src/scss/**/*', ['sass', browser.reload]);
@@ -33,3 +33,6 @@ gulp.task('default', ['build'], function() {
   gulp.watch('src/js/**/*', ['javascript:myapplication', browser.reload]);
   gulp.watch('src/docs/assets/js/**/*', ['javascript:docs', browser.reload]);
 });
+
+// Runs all of the above tasks and then waits for files to change
+gulp.task('default', ['build', 'commit']);
