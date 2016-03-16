@@ -19,20 +19,29 @@ Package.onUse(function(api) {
   api.addFiles('dist/myapplication.js', 'client');
   api.addFiles([
 
-    'scss/myapplication.scss',
-    'scss/_global.scss',
-    'scss/settings/_settings.scss',
+    'src/scss/myapplication.scss',
+    'src/scss/_global.scss',
+    'src/scss/settings/_settings.scss',
+    'src/scss/settings/_myapplication.scss',
 
-    'scss/components/_modulename.scss',
-    /*'scss/components/_accordion-menu.scss',
-    'scss/components/_accordion.scss',
-    'scss/components/_badge.scss',
-    'scss/components/_breadcrumbs.scss',
-    'scss/components/_button-group.scss',
-    'scss/components/_button.scss',
-    'scss/components/_callout.scss',
-    'scss/components/_close-button.scss',
-    'scss/components/_drilldown.scss',
+    'src/scss/overrides/_bootstrap.scss',
+    'src/scss/overrides/_flagicons.scss',
+    'src/scss/overrides/_fontawesome.scss',
+    'src/scss/overrides/_foundation.scss',
+    
+    'src/scss/components/_breadcrumbs.scss',
+    'src/scss/components/_data-filter-form.scss',
+    'src/scss/components/_flashmessages.scss',
+    'src/scss/components/_footer.scss',
+    'src/scss/components/_header.scss',
+    'src/scss/components/_http-status-colors.scss',
+    'src/scss/components/_navigation.scss',
+    'src/scss/components/_panel.scss',
+    'src/scss/components/_toolbar.scss',
+
+    'src/scss/modules/_admin-aclmatrix.scss',
+    'src/scss/modules/_admin-userprofile.scss',
+    /*'scss/components/_drilldown.scss',
     'scss/components/_dropdown-menu.scss',
     'scss/components/_dropdown.scss',
     'scss/components/_flex-video.scss',
@@ -76,19 +85,19 @@ Package.onUse(function(api) {
     'scss/grid/_row.scss',
     'scss/grid/_size.scss', */
 
-    'scss/typography/_alignment.scss',
-    'scss/typography/_base.scss',
-    'scss/typography/_helpers.scss',
-    'scss/typography/_print.scss',
-    'scss/typography/_typography.scss',
+    'src/scss/typography/_alignment.scss',
+    'src/scss/typography/_base.scss',
+    'src/scss/typography/_helpers.scss',
+    'src/scss/typography/_print.scss',
+    'src/scss/typography/_typography.scss',
 
-    'scss/util/_breakpoint.scss',
-    'scss/util/_color.scss',
-    'scss/util/_mixins.scss',
-    'scss/util/_selector.scss',
-    'scss/util/_unit.scss',
-    'scss/util/_util.scss',
-    'scss/util/_value.scss'
+    'src/scss/util/_breakpoint.scss',
+    'src/scss/util/_color.scss',
+    'src/scss/util/_mixins.scss',
+    'src/scss/util/_selector.scss',
+    'src/scss/util/_unit.scss',
+    'src/scss/util/_util.scss',
+    'src/scss/util/_value.scss'
     
   ], 'client', {isImport: true});
 });

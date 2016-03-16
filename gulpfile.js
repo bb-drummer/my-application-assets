@@ -15,10 +15,10 @@ gulp.task('serve', ['build'], function(){
 
 // Runs all of the above tasks and then waits for files to change
 gulp.task('default', ['build'], function() {
-  gulp.watch('docs/**/*', ['docs', browser.reload]);
-  gulp.watch(['docs/layout/*.html', 'docs/partials/*.html'], ['docs:all', browser.reload]);
-  gulp.watch('scss/**/*', ['sass', browser.reload]);
-  gulp.watch('docs/assets/scss/**/*', ['sass:docs', browser.reload]);
-  gulp.watch('js/**/*', ['javascript:myapplication', browser.reload]);
-  gulp.watch('docs/assets/js/**/*', ['javascript:docs', browser.reload]);
+  gulp.watch('src/docs/**/*', ['docs', browser.reload]);
+  gulp.watch(['src/docs/layout/*.html', 'src/docs/partials/*.html'], ['docs:all', browser.reload]);
+  gulp.watch('src/scss/**/*', ['sass', browser.reload]);
+  gulp.watch('src/docs/assets/scss/**/*', ['sass:docs', browser.reload]);
+  gulp.watch('src/js/**/*', ['javascript:myapplication', browser.reload]);
+  gulp.watch('src/docs/assets/js/**/*', ['javascript:docs', browser.reload]);
 });

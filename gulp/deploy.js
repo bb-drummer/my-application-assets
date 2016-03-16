@@ -16,12 +16,12 @@ var exec = require('child_process').execSync;
 var VERSIONED_FILES = [
   'bower.json',
   'composer.json',
-  'docs/pages/installation.md',
-  'js/myapplication.core.js',
   'meteor-README.md',
   'package.js',
   'package.json',
-  'scss/myapplication.scss'
+  'src/scss/myapplication.scss',
+  'src/docs/pages/installation.md',
+  'src/js/myapplication.core.js'
 ];
 
 var DIST_FILES = [
@@ -79,7 +79,7 @@ gulp.task('deploy:dist', ['sass:myapplication', 'javascript:myapplication'], fun
 gulp.task('deploy:settings', function(cb) {
   var options = {
     title: '[MyApplication] Settings',
-    output: './scss/settings/_settings.scss',
+    output: './src/scss/settings/_settings.scss',
     groups: {
       // turn on/off foundation groups ^^
       //'grid': 'The Grid',
@@ -100,7 +100,7 @@ gulp.task('deploy:settings', function(cb) {
     ]
   }
 
-  octophant('./scss', options, cb);
+  octophant('./src/scss', options, cb);
 });
 
 // Writes a commit with the changes to the version numbers

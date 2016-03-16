@@ -6,9 +6,9 @@ var panini = require('panini');
 var supercollider = require('supercollider');
 
 var PANINI_CONFIG = {
-  root: 'docs/pages/',
-  layouts: 'docs/layout/',
-  partials: 'docs/partials/',
+  root: 'src/docs/pages/',
+  layouts: 'src/docs/layout/',
+  partials: 'src/docs/partials/',
   helpers: foundationDocs.handlebarsHelpers
 }
 
@@ -23,8 +23,8 @@ supercollider
   .adapter('js');
 
 var MYDOCSPATHS = [
-  'mydocs/pages/**/*',
-  // 'docs/pages/**/*' // foundation docs ;)
+  'src/mydocs/pages/**/*',
+  // 'src/docs/pages/**/*' // foundation docs ;)
 ];
 
 // Assembles the layout, pages, and partials in the docs folder

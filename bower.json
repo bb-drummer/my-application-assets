@@ -2,8 +2,8 @@
   "name": "my-application/application-assets",
   "version": "",
   "main": [
-    "scss/myapplication.scss",
-    "dist/myapplication.js"
+    "src/scss/myapplication.scss",
+    "src/dist/myapplication.js"
   ],
   "ignore": [
     "config",

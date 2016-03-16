@@ -2,9 +2,9 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 
 var MYAPPLICATION = [
-  'js/myapplication.core.js',
-  'js/myapplication.config.js',
-  'js/*.js'
+  'src/js/myapplication.core.js',
+  'src/js/myapplication.config.js',
+  'src/js/*.js'
 ];
 
 var DEPS = [
@@ -16,8 +16,8 @@ var DEPS = [
 var DOCS = [
   'node_modules/clipboard/dist/clipboard.js',
   'node_modules/corejs-typeahead/dist/typeahead.bundle.js',
-  'docs/assets/js/docs.*.js',
-  'docs/assets/js/docs.js'
+  'src/docs/assets/js/docs.*.js',
+  'src/docs/assets/js/docs.js'
 ];
 
 // Compiles JavaScript into a single file

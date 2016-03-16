@@ -1,17 +1,17 @@
 var gulp = require('gulp');
 
 var MYFILES = [
-  'assets/**/*',
-  '!assets/{js,scss}',
-  '!assets/{js,scss}/**/*',
-  '!assets/*.{js,scss}',
-  '!assets/**/*.{js,scss}'
+  'src/assets/**/*',
+  '!src/assets/{js,scss}',
+  '!src/assets/{js,scss}/**/*',
+  '!src/assets/*.{js,scss}',
+  '!src/assets/**/*.{js,scss}'
 ];
 
 var DOCFILES = [
-  'docs/assets/**/*',
-  '!docs/assets/{js,scss}',
-  '!docs/assets/{js,scss}/**/*'
+  'src/docs/assets/**/*',
+  '!src/docs/assets/{js,scss}',
+  '!src/docs/assets/{js,scss}/**/*'
 ];
 
 // Copies static assets

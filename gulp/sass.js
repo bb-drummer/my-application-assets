@@ -9,8 +9,8 @@ var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 
 var PATHS = [
-  'scss',
-  'mydocs/scss',
+  'src/scss',
+  'src/mydocs/scss',
   'node_modules/motion-ui/src',
   'node_modules/foundation-docs/scss'
 ];
@@ -24,23 +24,22 @@ var COMPATIBILITY = [
 // Compiles Sass files into CSS
 gulp.task('sass', ['sass:myapplication', 'sass:docs']);
 
-// Compiles Foundation Sass
+// Compiles MyApplication Sass
 gulp.task('sass:myapplication', function() {
-  return gulp.src(['assets/*'])
+  return gulp.src(['src/assets/*'])
     .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: COMPATIBILITY
     }))
-    // .pipe(rename('foundation.css'))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('_build/assets/css'));
 });
 
-// Compiles docs Sass (includes Foundation code also)
+// Compiles docs Sass
 gulp.task('sass:docs', function() {
-  return gulp.src('docs/assets/scss/docs.scss')
+  return gulp.src('src/docs/assets/scss/docs.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: PATHS

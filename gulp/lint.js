@@ -3,9 +3,9 @@ var scssLint = require('gulp-scss-lint');
 var jshint = require('gulp-jshint');
 
 var PATHS = [
-  'scss/**/*.scss',
-  '!scss/vendor/**/*.scss',
-  '!scss/components_old/**/*.scss'
+  'src/scss/**/*.scss',
+  '!src/scss/vendor/**/*.scss',
+  '!src/scss/components_old/**/*.scss'
 ];
 
 // Lints Sass and JavaScript files for formatting issues
