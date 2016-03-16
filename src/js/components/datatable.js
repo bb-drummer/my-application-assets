@@ -127,6 +127,6 @@
 		MyApplication.unregisterPlugin(this);
   };
   
-  MyApplication.plugin(Datatable, 'Datatable');
+  MyApplication.plugin(Datatable, 'MyApplicationDatatable');
   
 }(jQuery, window.MyApplication);

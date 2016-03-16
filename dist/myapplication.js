@@ -838,7 +838,7 @@ function parseStyleToObject(str) {
 		MyApplication.unregisterPlugin(this);
   };
   
-  MyApplication.plugin(Datatable, 'Datatable');
+  MyApplication.plugin(Datatable, 'MyApplicationDatatable');
   
 }(jQuery, window.MyApplication);
 /**
@@ -880,69 +880,6 @@ if (!jQuery) {
 		$lang = MyApplication.Config.lang
 	;
 		
-	/**
-	 * init jQuery dataTable plug-in
-	 * 
-	 * @return MyApplication
-	 */
-	/*MyApplication.initDatatables = function () {
-		if (!$.fn.dataTable) {
-			console.warn('jQuery dataTable plug-in not found...');
-			return;
-		}
-		$('.datatable').each(function (idx, elm) {
-			var $table = $(this),
-				$lang_url = MyApplication.Config.dataTable.langURLs[MyApplication.Config.lang],
-				datatableOptions = {
-					renderer : ((typeof Foundation != 'undefined') ? 'foundation' : 'bootstrap'),
-					language : {
-						url : $lang_url
-					},
-					stateSave : MyApplication.Config.dataTable.stateSave,
-					stateDuration : MyApplication.Config.dataTable.stateDuration  // sec * min * h * d
-				}
-			;
-			
-			// has data source and is 'CRUD' table?
-			var $src = $($table).data("src");
-			if ( $src && $($table).hasClass('crud') ) {
-				// set ajax options
-				datatableOptions.ajax = {
-					url : $src,
-					type : "POST"
-				};
-				// set (data) columns, read from TH's 'data-column' attribute
-				var $columns = false;
-				$table.find('THEAD TH').each(function () {
-					var columnname = $(this).data("column");
-					if (columnname) {
-						if (!$columns) { $columns = []; }
-						$columns.push({
-							data : columnname
-						});
-					}
-				});
-				if ($columns) {
-					// action columns
-					if ($table.find('THEAD TH.actions').size() > 0) {
-						$columns.push(null);
-				        $columnDefs = [ {
-				            targets : -1,
-				            data : "_actions_",
-				            sortable : false,
-				            searchable : false
-				        } ];
-				        datatableOptions.columnDefs = $columnDefs;
-					}
-					datatableOptions.columns = $columns;
-				}
-			}
-			
-			$table.dataTable(datatableOptions);
-		});
-		
-		return (this);
-	};*/
 	
 	/**
 	 * init acl matrix/table ajax triggers
