@@ -35,4 +35,4 @@ gulp.task('watch', ['build'], function() {
 });
 
 // Runs all of the above tasks and then waits for files to change
-gulp.task('default', ['build', 'commit']);
+gulp.task('default', ['build']);
