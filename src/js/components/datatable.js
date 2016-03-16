@@ -121,7 +121,7 @@
    * Destroys the Component.
    * @function
    */
-  Dropdown.prototype.destroy = function(){
+  Datatable.prototype.destroy = function(){
 		// ... clean up stuff
 
 		MyApplication.unregisterPlugin(this);
