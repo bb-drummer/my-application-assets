@@ -49,7 +49,7 @@ var MyApplication = {
     // Examples: data-objecttriggername1, data-objecttriggername2
     var attrName  = hyphenate(className);
 
-    // Add to the Foundation object and the plugins list (for reflowing)
+    // Add to the MyApplication object and the plugins list (for reflowing)
     this._plugins[attrName] = this[className] = plugin;
   },
   /**
@@ -284,8 +284,8 @@ var myapplication = function(method) {
   }
 
   if(type === 'undefined'){//needs to initialize the MyApplication object, or an individual plugin.
-    Foundation.MediaQuery._init();
-    Foundation.reflow(this);
+    MyApplication.MediaQuery._init();
+    MyApplication.reflow(this);
   }else if(type === 'string'){//an individual method to invoke on a plugin or group of plugins
     var args = Array.prototype.slice.call(arguments, 1);//collect all the arguments, if necessary
     var plugClass = this.data('myappPlugin');//determine the class of plugin
