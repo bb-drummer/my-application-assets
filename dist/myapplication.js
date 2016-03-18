@@ -2,13 +2,13 @@
  * BB's Zend Framework 2 Components
  * 
  * myApplication client (init-)script
- *   
- * @package   [MyApplication]
- * @package   BB's Zend Framework 2 Components
- * @package   myApplication client script
- * @author    Björn Bartels <development@bjoernbartels.earth>
- * @link      https://gitlab.bjoernbartels.earth/groups/themes
- * @license   http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ *     
+ * @package     [MyApplication]
+ * @package     BB's Zend Framework 2 Components
+ * @package     myApplication client script
+ * @author        Björn Bartels <development@bjoernbartels.earth>
+ * @link            https://gitlab.bjoernbartels.earth/groups/themes
+ * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @copyright copyright (c) 2016 Björn Bartels <development@bjoernbartels.earth>
  */
 !function($) {
@@ -20,215 +20,215 @@ var MYAPPLICATION_VERSION = '';
 // Global [MyApplication] object
 // This is attached to the window, or used as a module for AMD/Browserify
 var MyApplication = {
-  version: MYAPPLICATION_VERSION,
+    version: MYAPPLICATION_VERSION,
 
-  /**
-   * Stores initialized plugins.
-   */
-  _plugins: {},
+    /**
+     * Stores initialized plugins.
+     */
+    _plugins: {},
 
-  /**
-   * Stores generated unique ids for plugin instances
-   */
-  _uuids: [],
+    /**
+     * Stores generated unique ids for plugin instances
+     */
+    _uuids: [],
 
-  /**
-   * Returns a boolean for RTL support
-   */
-  rtl: function(){
-    return $('html').attr('dir') === 'rtl';
-  },
-  /**
-   * Defines a [MyApplication] plugin, adding it to the `MyApplication` namespace and the list of plugins to initialize when reflowing.
-   * @param {Object} plugin - The constructor of the plugin.
-   */
-  plugin: function(plugin, name) {
-    // Object key to use when adding to global MyApplication object
-    // Examples: MyApplication.Object1, MyApplication.Object2
-    var className = (name || functionName(plugin));
-    // Object key to use when storing the plugin, also used to create the identifying data attribute for the plugin
-    // Examples: data-objecttriggername1, data-objecttriggername2
-    var attrName  = hyphenate(className);
+    /**
+     * Returns a boolean for RTL support
+     */
+    rtl: function(){
+        return $('html').attr('dir') === 'rtl';
+    },
+    /**
+     * Defines a [MyApplication] plugin, adding it to the `MyApplication` namespace and the list of plugins to initialize when reflowing.
+     * @param {Object} plugin - The constructor of the plugin.
+     */
+    plugin: function(plugin, name) {
+        // Object key to use when adding to global MyApplication object
+        // Examples: MyApplication.Object1, MyApplication.Object2
+        var className = (name || functionName(plugin));
+        // Object key to use when storing the plugin, also used to create the identifying data attribute for the plugin
+        // Examples: data-objecttriggername1, data-objecttriggername2
+        var attrName    = hyphenate(className);
 
-    // Add to the MyApplication object and the plugins list (for reflowing)
-    this._plugins[attrName] = this[className] = plugin;
-  },
-  /**
-   * @function
-   * Populates the _uuids array with pointers to each individual plugin instance.
-   * Adds the `myappPlugin` data-attribute to programmatically created plugins to allow use of $(selector).myapplication(method) calls.
-   * Also fires the initialization event for each plugin, consolidating repeditive code.
-   * @param {Object} plugin - an instance of a plugin, usually `this` in context.
-   * @param {String} name - the name of the plugin, passed as a camelCased string.
-   * @fires Plugin#init
-   */
-  registerPlugin: function(plugin, name){
-    var pluginName = name ? hyphenate(name) : functionName(plugin.constructor).toLowerCase();
-    plugin.uuid = this.GetYoDigits(6, pluginName);
+        // Add to the MyApplication object and the plugins list (for reflowing)
+        this._plugins[attrName] = this[className] = plugin;
+    },
+    /**
+     * @function
+     * Populates the _uuids array with pointers to each individual plugin instance.
+     * Adds the `myappPlugin` data-attribute to programmatically created plugins to allow use of $(selector).myapplication(method) calls.
+     * Also fires the initialization event for each plugin, consolidating repeditive code.
+     * @param {Object} plugin - an instance of a plugin, usually `this` in context.
+     * @param {String} name - the name of the plugin, passed as a camelCased string.
+     * @fires Plugin#init
+     */
+    registerPlugin: function(plugin, name){
+        var pluginName = name ? hyphenate(name) : functionName(plugin.constructor).toLowerCase();
+        plugin.uuid = this.GetYoDigits(6, pluginName);
 
-    if(!plugin.$element.attr('data-' + pluginName)){ plugin.$element.attr('data-' + pluginName, plugin.uuid); }
-    if(!plugin.$element.data('myappPlugin')){ plugin.$element.data('myappPlugin', plugin); }
-          /**
-           * Fires when the plugin has initialized.
-           * @event Plugin#init
-           */
-    plugin.$element.trigger('init.myapp.' + pluginName);
+        if(!plugin.$element.attr('data-' + pluginName)){ plugin.$element.attr('data-' + pluginName, plugin.uuid); }
+        if(!plugin.$element.data('myappPlugin')){ plugin.$element.data('myappPlugin', plugin); }
+                    /**
+                     * Fires when the plugin has initialized.
+                     * @event Plugin#init
+                     */
+        plugin.$element.trigger('init.myapp.' + pluginName);
 
-    this._uuids.push(plugin.uuid);
+        this._uuids.push(plugin.uuid);
 
-    return;
-  },
-  /**
-   * @function
-   * Removes the plugins uuid from the _uuids array.
-   * Removes the zfPlugin data attribute, as well as the data-plugin-name attribute.
-   * Also fires the destroyed event for the plugin, consolidating repeditive code.
-   * @param {Object} plugin - an instance of a plugin, usually `this` in context.
-   * @fires Plugin#destroyed
-   */
-  unregisterPlugin: function(plugin){
-    var pluginName = hyphenate(functionName(plugin.$element.data('myappPlugin').constructor));
+        return;
+    },
+    /**
+     * @function
+     * Removes the plugins uuid from the _uuids array.
+     * Removes the zfPlugin data attribute, as well as the data-plugin-name attribute.
+     * Also fires the destroyed event for the plugin, consolidating repeditive code.
+     * @param {Object} plugin - an instance of a plugin, usually `this` in context.
+     * @fires Plugin#destroyed
+     */
+    unregisterPlugin: function(plugin){
+        var pluginName = hyphenate(functionName(plugin.$element.data('myappPlugin').constructor));
 
-    this._uuids.splice(this._uuids.indexOf(plugin.uuid), 1);
-    plugin.$element.removeAttr('data-' + pluginName).removeData('myappPlugin')
-          /**
-           * Fires when the plugin has been destroyed.
-           * @event Plugin#destroyed
-           */
-          .trigger('destroyed.myapp.' + pluginName);
-    for(var prop in plugin){
-      plugin[prop] = null;//clean up script to prep for garbage collection.
-    }
-    return;
-  },
+        this._uuids.splice(this._uuids.indexOf(plugin.uuid), 1);
+        plugin.$element.removeAttr('data-' + pluginName).removeData('myappPlugin')
+                    /**
+                     * Fires when the plugin has been destroyed.
+                     * @event Plugin#destroyed
+                     */
+                    .trigger('destroyed.myapp.' + pluginName);
+        for(var prop in plugin){
+            plugin[prop] = null;//clean up script to prep for garbage collection.
+        }
+        return;
+    },
 
-  /**
-   * @function
-   * Causes one or more active plugins to re-initialize, resetting event listeners, recalculating positions, etc.
-   * @param {String} plugins - optional string of an individual plugin key, attained by calling `$(element).data('pluginName')`, or string of a plugin class i.e. `'dropdown'`
-   * @default If no argument is passed, reflow all currently active plugins.
-   */
-   reInit: function(plugins){
-     var isJQ = plugins instanceof $;
-     try{
-       if(isJQ){
-         plugins.each(function(){
-           $(this).data('myappPlugin')._init();
-         });
-       }else{
-         var type = typeof plugins,
-         _this = this,
-         fns = {
-           'object': function(plgs){
-             plgs.forEach(function(p){
-               $('[data-'+ p +']').myapplication('_init');
-             });
-           },
-           'string': function(){
-             $('[data-'+ plugins +']').myapplication('_init');
-           },
-           'undefined': function(){
-             this['object'](Object.keys(_this._plugins));
-           }
-         };
-         fns[type](plugins);
-       }
-     }catch(err){
-       console.error(err);
-     }finally{
-       return plugins;
-     }
-   },
+    /**
+     * @function
+     * Causes one or more active plugins to re-initialize, resetting event listeners, recalculating positions, etc.
+     * @param {String} plugins - optional string of an individual plugin key, attained by calling `$(element).data('pluginName')`, or string of a plugin class i.e. `'dropdown'`
+     * @default If no argument is passed, reflow all currently active plugins.
+     */
+     reInit: function(plugins){
+         var isJQ = plugins instanceof $;
+         try{
+             if(isJQ){
+                 plugins.each(function(){
+                     $(this).data('myappPlugin')._init();
+                 });
+             }else{
+                 var type = typeof plugins,
+                 _this = this,
+                 fns = {
+                     'object': function(plgs){
+                         plgs.forEach(function(p){
+                             $('[data-'+ p +']').myapplication('_init');
+                         });
+                     },
+                     'string': function(){
+                         $('[data-'+ plugins +']').myapplication('_init');
+                     },
+                     'undefined': function(){
+                         this['object'](Object.keys(_this._plugins));
+                     }
+                 };
+                 fns[type](plugins);
+             }
+         }catch(err){
+             console.error(err);
+         }finally{
+             return plugins;
+         }
+     },
 
-  /**
-   * returns a random base-36 uid with namespacing
-   * @function
-   * @param {Number} length - number of random base-36 digits desired. Increase for more random strings.
-   * @param {String} namespace - name of plugin to be incorporated in uid, optional.
-   * @default {String} '' - if no plugin name is provided, nothing is appended to the uid.
-   * @returns {String} - unique id
-   */
-  GetYoDigits: function(length, namespace){
-    length = length || 6;
-    return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1) + (namespace ? '-' + namespace : '');
-  },
-  /**
-   * Initialize plugins on any elements within `elem` (and `elem` itself) that aren't already initialized.
-   * @param {Object} elem - jQuery object containing the element to check inside. Also checks the element itself, unless it's the `document` object.
-   * @param {String|Array} plugins - A list of plugins to initialize. Leave this out to initialize everything.
-   */
-  reflow: function(elem, plugins) {
+    /**
+     * returns a random base-36 uid with namespacing
+     * @function
+     * @param {Number} length - number of random base-36 digits desired. Increase for more random strings.
+     * @param {String} namespace - name of plugin to be incorporated in uid, optional.
+     * @default {String} '' - if no plugin name is provided, nothing is appended to the uid.
+     * @returns {String} - unique id
+     */
+    GetYoDigits: function(length, namespace){
+        length = length || 6;
+        return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1) + (namespace ? '-' + namespace : '');
+    },
+    /**
+     * Initialize plugins on any elements within `elem` (and `elem` itself) that aren't already initialized.
+     * @param {Object} elem - jQuery object containing the element to check inside. Also checks the element itself, unless it's the `document` object.
+     * @param {String|Array} plugins - A list of plugins to initialize. Leave this out to initialize everything.
+     */
+    reflow: function(elem, plugins) {
 
-    // If plugins is undefined, just grab everything
-    if (typeof plugins === 'undefined') {
-      plugins = Object.keys(this._plugins);
-    }
-    // If plugins is a string, convert it to an array with one item
-    else if (typeof plugins === 'string') {
-      plugins = [plugins];
-    }
-
-    var _this = this;
-
-    // Iterate through each plugin
-    $.each(plugins, function(i, name) {
-      // Get the current plugin
-      var plugin = _this._plugins[name];
-
-      // Localize the search to all elements inside elem, as well as elem itself, unless elem === document
-      var $elem = $(elem).find('[data-'+name+']').addBack('[data-'+name+']');
-
-      // For each plugin found, initialize it
-      $elem.each(function() {
-        var $el = $(this),
-            opts = {};
-        // Don't double-dip on plugins
-        if ($el.data('myappPlugin')) {
-          console.warn("Tried to initialize "+name+" on an element that already has a [MyApplication] plugin.");
-          return;
+        // If plugins is undefined, just grab everything
+        if (typeof plugins === 'undefined') {
+            plugins = Object.keys(this._plugins);
+        }
+        // If plugins is a string, convert it to an array with one item
+        else if (typeof plugins === 'string') {
+            plugins = [plugins];
         }
 
-        if($el.attr('data-options')){
-          var thing = $el.attr('data-options').split(';').forEach(function(e, i){
-            var opt = e.split(':').map(function(el){ return el.trim(); });
-            if(opt[0]) opts[opt[0]] = parseValue(opt[1]);
-          });
-        }
-        try{
-          $el.data('myappPlugin', new plugin($(this), opts));
-        }catch(er){
-          console.error(er);
-        }finally{
-          return;
-        }
-      });
-    });
-  },
-  getFnName: functionName,
-  transitionend: function($elem){
-    var transitions = {
-      'transition': 'transitionend',
-      'WebkitTransition': 'webkitTransitionEnd',
-      'MozTransition': 'transitionend',
-      'OTransition': 'otransitionend'
-    };
-    var elem = document.createElement('div'),
-        end;
+        var _this = this;
 
-    for (var t in transitions){
-      if (typeof elem.style[t] !== 'undefined'){
-        end = transitions[t];
-      }
+        // Iterate through each plugin
+        $.each(plugins, function(i, name) {
+            // Get the current plugin
+            var plugin = _this._plugins[name];
+
+            // Localize the search to all elements inside elem, as well as elem itself, unless elem === document
+            var $elem = $(elem).find('[data-'+name+']').addBack('[data-'+name+']');
+
+            // For each plugin found, initialize it
+            $elem.each(function() {
+                var $el = $(this),
+                        opts = {};
+                // Don't double-dip on plugins
+                if ($el.data('myappPlugin')) {
+                    console.warn("Tried to initialize "+name+" on an element that already has a [MyApplication] plugin.");
+                    return;
+                }
+
+                if($el.attr('data-options')){
+                    var thing = $el.attr('data-options').split(';').forEach(function(e, i){
+                        var opt = e.split(':').map(function(el){ return el.trim(); });
+                        if(opt[0]) opts[opt[0]] = parseValue(opt[1]);
+                    });
+                }
+                try{
+                    $el.data('myappPlugin', new plugin($(this), opts));
+                }catch(er){
+                    console.error(er);
+                }finally{
+                    return;
+                }
+            });
+        });
+    },
+    getFnName: functionName,
+    transitionend: function($elem){
+        var transitions = {
+            'transition': 'transitionend',
+            'WebkitTransition': 'webkitTransitionEnd',
+            'MozTransition': 'transitionend',
+            'OTransition': 'otransitionend'
+        };
+        var elem = document.createElement('div'),
+                end;
+
+        for (var t in transitions){
+            if (typeof elem.style[t] !== 'undefined'){
+                end = transitions[t];
+            }
+        }
+        if(end){
+            return end;
+        }else{
+            end = setTimeout(function(){
+                $elem.triggerHandler('transitionend', [$elem]);
+            }, 1);
+            return 'transitionend';
+        }
     }
-    if(end){
-      return end;
-    }else{
-      end = setTimeout(function(){
-        $elem.triggerHandler('transitionend', [$elem]);
-      }, 1);
-      return 'transitionend';
-    }
-  }
 };
 
 
@@ -243,27 +243,27 @@ MyApplication.libs = {
  * utility container/namespace
  */
 MyApplication.util = {
-  /**
-   * Function for applying a debounce effect to a function call.
-   * @function
-   * @param {Function} func - Function to be called at end of timeout.
-   * @param {Number} delay - Time in ms to delay the call of `func`.
-   * @returns function
-   */
-  throttle: function (func, delay) {
-    var timer = null;
+    /**
+     * Function for applying a debounce effect to a function call.
+     * @function
+     * @param {Function} func - Function to be called at end of timeout.
+     * @param {Number} delay - Time in ms to delay the call of `func`.
+     * @returns function
+     */
+    throttle: function (func, delay) {
+        var timer = null;
 
-    return function () {
-      var context = this, args = arguments;
+        return function () {
+            var context = this, args = arguments;
 
-      if (timer === null) {
-        timer = setTimeout(function () {
-          func.apply(context, args);
-          timer = null;
-        }, delay);
-      }
-    };
-  }
+            if (timer === null) {
+                timer = setTimeout(function () {
+                    func.apply(context, args);
+                    timer = null;
+                }, delay);
+            }
+        };
+    }
 };
 
 // TODO: consider not making this a jQuery function
@@ -273,39 +273,42 @@ MyApplication.util = {
  * @param {String|Array} method - An action to perform on the current jQuery object.
  */
 var myapplication = function(method) {
-  var type = typeof method,
-      $meta = $('meta.myapplication-mq'),
-      $noJS = $('.no-js');
+    var type = typeof method,
+            $meta = $('meta.myapplication-mq'),
+            $noJS = $('.no-js');
 
-  if(!$meta.length){
-    $('<meta class="myapplication-mq">').appendTo(document.head);
-  }
-  if($noJS.length){
-    $noJS.removeClass('no-js');
-  }
-
-  if(type === 'undefined'){//needs to initialize the MyApplication object, or an individual plugin.
-    MyApplication.MediaQuery._init();
-    MyApplication.reflow(this);
-  }else if(type === 'string'){//an individual method to invoke on a plugin or group of plugins
-    var args = Array.prototype.slice.call(arguments, 1);//collect all the arguments, if necessary
-    var plugClass = this.data('myappPlugin');//determine the class of plugin
-
-    if(plugClass !== undefined && plugClass[method] !== undefined){//make sure both the class and method exist
-      if(this.length === 1){//if there's only one, call it directly.
-          plugClass[method].apply(plugClass, args);
-      }else{
-        this.each(function(i, el){//otherwise loop through the jQuery collection and invoke the method on each
-          plugClass[method].apply($(el).data('myappPlugin'), args);
-        });
-      }
-    }else{//error for no class or no method
-      throw new ReferenceError("We're sorry, '" + method + "' is not an available method for " + (plugClass ? functionName(plugClass) : 'this element') + '.');
+    if(!$meta.length){
+        $('<meta class="myapplication-mq">').appendTo(document.head);
     }
-  }else{//error for invalid argument type
-    throw new TypeError("We're sorry, '" + type + "' is not a valid parameter. You must use a string representing the method you wish to invoke.");
-  }
-  return this;
+    if($noJS.length){
+        $noJS.removeClass('no-js');
+    }
+    $('body').addClass(
+        (typeof Foundation == 'undefined') ? 'bootstrap' : 'foundation'
+    );
+    
+    if(type === 'undefined'){//needs to initialize the MyApplication object, or an individual plugin.
+        MyApplication.MediaQuery._init();
+        MyApplication.reflow(this);
+    }else if(type === 'string'){//an individual method to invoke on a plugin or group of plugins
+        var args = Array.prototype.slice.call(arguments, 1);//collect all the arguments, if necessary
+        var plugClass = this.data('myapp-plugin');//determine the class of plugin
+
+        if(plugClass !== undefined && plugClass[method] !== undefined){//make sure both the class and method exist
+            if(this.length === 1){//if there's only one, call it directly.
+                    plugClass[method].apply(plugClass, args);
+            }else{
+                this.each(function(i, el){//otherwise loop through the jQuery collection and invoke the method on each
+                    plugClass[method].apply($(el).data('myapp-plugin'), args);
+                });
+            }
+        }else{//error for no class or no method
+            throw new ReferenceError("We're sorry, '" + method + "' is not an available method for " + (plugClass ? functionName(plugClass) : 'this element') + '.');
+        }
+    }else{//error for invalid argument type
+        throw new TypeError("We're sorry, '" + type + "' is not a valid parameter. You must use a string representing the method you wish to invoke.");
+    }
+    return this;
 };
 
 window.MyApplication = MyApplication;
@@ -313,88 +316,88 @@ $.fn.myapplication = myapplication;
 
 // Polyfill for requestAnimationFrame
 (function() {
-  if (!Date.now || !window.Date.now)
-    window.Date.now = Date.now = function() { return new Date().getTime(); };
+    if (!Date.now || !window.Date.now)
+        window.Date.now = Date.now = function() { return new Date().getTime(); };
 
-  var vendors = ['webkit', 'moz'];
-  for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
-      var vp = vendors[i];
-      window.requestAnimationFrame = window[vp+'RequestAnimationFrame'];
-      window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame']
-                                 || window[vp+'CancelRequestAnimationFrame']);
-  }
-  if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)
-    || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
-    var lastTime = 0;
-    window.requestAnimationFrame = function(callback) {
-        var now = Date.now();
-        var nextTime = Math.max(lastTime + 16, now);
-        return setTimeout(function() { callback(lastTime = nextTime); },
-                          nextTime - now);
-    };
-    window.cancelAnimationFrame = clearTimeout;
-  }
-  /**
-   * Polyfill for performance.now, required by rAF
-   */
-  if(!window.performance || !window.performance.now){
-    window.performance = {
-      start: Date.now(),
-      now: function(){ return Date.now() - this.start; }
-    };
-  }
+    var vendors = ['webkit', 'moz'];
+    for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+            var vp = vendors[i];
+            window.requestAnimationFrame = window[vp+'RequestAnimationFrame'];
+            window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame']
+                                                                 || window[vp+'CancelRequestAnimationFrame']);
+    }
+    if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)
+        || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+        var lastTime = 0;
+        window.requestAnimationFrame = function(callback) {
+                var now = Date.now();
+                var nextTime = Math.max(lastTime + 16, now);
+                return setTimeout(function() { callback(lastTime = nextTime); },
+                                                    nextTime - now);
+        };
+        window.cancelAnimationFrame = clearTimeout;
+    }
+    /**
+     * Polyfill for performance.now, required by rAF
+     */
+    if(!window.performance || !window.performance.now){
+        window.performance = {
+            start: Date.now(),
+            now: function(){ return Date.now() - this.start; }
+        };
+    }
 })();
 if (!Function.prototype.bind) {
-  Function.prototype.bind = function(oThis) {
-    if (typeof this !== 'function') {
-      // closest thing possible to the ECMAScript 5
-      // internal IsCallable function
-      throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
-    }
+    Function.prototype.bind = function(oThis) {
+        if (typeof this !== 'function') {
+            // closest thing possible to the ECMAScript 5
+            // internal IsCallable function
+            throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+        }
 
-    var aArgs   = Array.prototype.slice.call(arguments, 1),
-        fToBind = this,
-        fNOP    = function() {},
-        fBound  = function() {
-          return fToBind.apply(this instanceof fNOP
-                 ? this
-                 : oThis,
-                 aArgs.concat(Array.prototype.slice.call(arguments)));
-        };
+        var aArgs     = Array.prototype.slice.call(arguments, 1),
+                fToBind = this,
+                fNOP        = function() {},
+                fBound    = function() {
+                    return fToBind.apply(this instanceof fNOP
+                                 ? this
+                                 : oThis,
+                                 aArgs.concat(Array.prototype.slice.call(arguments)));
+                };
 
-    if (this.prototype) {
-      // native functions don't have a prototype
-      fNOP.prototype = this.prototype;
-    }
-    fBound.prototype = new fNOP();
+        if (this.prototype) {
+            // native functions don't have a prototype
+            fNOP.prototype = this.prototype;
+        }
+        fBound.prototype = new fNOP();
 
-    return fBound;
-  };
+        return fBound;
+    };
 }
 // Polyfill to get the name of a function in IE9
 function functionName(fn) {
-  if (Function.prototype.name === undefined) {
-    var funcNameRegex = /function\s([^(]{1,})\(/;
-    var results = (funcNameRegex).exec((fn).toString());
-    return (results && results.length > 1) ? results[1].trim() : "";
-  }
-  else if (fn.prototype === undefined) {
-    return fn.constructor.name;
-  }
-  else {
-    return fn.prototype.constructor.name;
-  }
+    if (Function.prototype.name === undefined) {
+        var funcNameRegex = /function\s([^(]{1,})\(/;
+        var results = (funcNameRegex).exec((fn).toString());
+        return (results && results.length > 1) ? results[1].trim() : "";
+    }
+    else if (fn.prototype === undefined) {
+        return fn.constructor.name;
+    }
+    else {
+        return fn.prototype.constructor.name;
+    }
 }
 function parseValue(str){
-  if(/true/.test(str)) return true;
-  else if(/false/.test(str)) return false;
-  else if(!isNaN(str * 1)) return parseFloat(str);
-  return str;
+    if(/true/.test(str)) return true;
+    else if(/false/.test(str)) return false;
+    else if(!isNaN(str * 1)) return parseFloat(str);
+    return str;
 }
 // Convert PascalCase to kebab-case
 // Thank you: http://stackoverflow.com/a/8955580
 function hyphenate(str) {
-  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
 }(jQuery);
@@ -653,6 +656,126 @@ function parseStyleToObject(str) {
 
 }(jQuery, MyApplication);
 
+/**
+ * 
+ */
+;(function ($, window, document, MyApplication, undefined) {
+  'use strict';
+
+
+  MyApplication.libs.modal = {
+    name : 'modal',
+
+    version : '0.0.1',
+
+    settings : {
+      callback : function () {}
+    },
+
+    /*init : function (scope, method, options) {
+      var self = this;
+      // MyApplication.inherit(this, 'modulename1 modulename2');
+
+      this.bindings(method, options);
+    },*/
+
+	/**
+	 * open modal dialog
+	 * 
+	 * @param  mixed  data  the modal content
+	 * @param  string  updateWindowHref  URL to update browser history and location, -false/null- disables, default -false- 
+	 * @return MyApplication.libs.modal
+	 */
+	open : function (data, updateWindowHref) {
+		if ((typeof $.fn.modal == 'undefined') && (typeof Foundation.Reveal == 'undefined')) {
+			console.warn('Bootstrap Modal and/or Foundation Reveal plug-ins not found...');
+			return;
+		}
+		var $modal = null;
+		if (typeof Foundation != 'undefined') {
+			if ( $('#'+MyApplication.Config.modals.foundationElementClassname).size() == 0 ) {
+				$('BODY').append('<div id="'+MyApplication.Config.modals.foundationElementClassname+'" class="'+MyApplication.Config.modals.foundationElementClassname+'" data-reveal></div>')
+			}
+			var modalData = ''+data+'',
+			    m = new Foundation.Reveal($('#'+MyApplication.Config.modals.foundationElementClassname))
+			;
+			$('#'+MyApplication.Config.modals.foundationElementClassname).html(data).foundation('open');
+			$modal = $('.'+MyApplication.Config.modals.foundationElementClassname);
+		} else {
+			var $modalDefaults = {
+				show: true
+			};
+			$(data).modal($modalDefaults);
+			$modal = $('.'+MyApplication.Config.modals.bootstrapElementClassname);
+		}
+		
+		if (updateWindowHref) {
+			MyApplication.WindowHref.reset();
+			document._old_href = window.location.href;
+		    window.history.pushState(
+		        {
+		            "html" : null,
+		            "pageTitle" : document.title
+		        },
+		        "",
+		        updateWindowHref
+		    );
+		}
+		
+		return ($modal);
+	},
+	
+	/**
+	 * close modal dialog
+	 * 
+	 * @return MyApplication.libs.modal
+	 */
+	close : function () {
+		if ((typeof $.fn.modal == 'undefined') && (typeof Foundation.Reveal == 'undefined')) {
+			console.warn('jQuery Modal and/or Foundation Reveal plug-ins not found...');
+			return;
+		}
+		
+		var $modal;
+		// close/destroy modals
+		if (typeof Foundation != 'undefined') {
+			$modal = $('.'+MyApplication.Config.modals.foundationElementClassname);
+			if ($modal) {
+				try {
+					$modal.foundation('close');
+					$modal.foundation('destroy');
+				} catch (e) {}
+			}
+		} else {
+			$modal = $('.'+MyApplication.Config.modals.bootstrapElementClassname);
+			if ($modal) {
+				$modal.modal('hide');
+			}
+		}
+		
+		// clean up
+		$('BODY').removeClass('is-reveal-open');
+		$('.reveal, .modal, .modal-backdrop').remove();
+		
+		// (re)set document URL
+		MyApplication.WindowHref.reset();
+		
+		return (this);
+	}
+
+  };
+
+  // code, private functions, etc here...
+
+  MyApplication.Modal = {
+	  open : MyApplication.libs.modal.open,
+	  close : MyApplication.libs.modal.close,
+  };
+  
+})(jQuery, window, document, window.MyApplication);
+
+
+
 ;(function ($, window, document, MyApplication, undefined) {
   'use strict';
 
@@ -704,6 +827,93 @@ function parseStyleToObject(str) {
 
   MyApplication.myUtility = {
     // public properties, methods here 
+  };
+  
+})(jQuery, window, document, window.MyApplication);
+
+
+
+/**
+ * 
+ */
+;(function ($, window, document, MyApplication, undefined) {
+  'use strict';
+
+
+  MyApplication.libs.windowhref = {
+    name : 'windowhref',
+
+    version : '0.0.1',
+
+    settings : {
+      callback : function () {}
+    },
+
+    init : function (scope, method, options) {
+      var self = this;
+      // MyApplication.inherit(this, 'modulename1 modulename2');
+    },
+
+	/**
+	 * update window's href to URL and save old href
+	 * 
+	 * @param  string  url  URL to update to
+	 * @return MyApplication.libs.windowhref
+	 */
+	update : function ( url ) {
+		if ( (url == '') || (url == window.location.href) ) { return; }
+		
+		document._old_href = window.location.href;
+	    window.history.pushState(
+	        {
+	            "html" : null,
+	            "pageTitle" : document.title
+	        },
+	        "",
+	        updateWindowHref
+	    );
+		
+		return (this);
+	},
+	
+	/**
+	 * reset window's href to stored URL
+	 * 
+	 * @return MyApplication.libs.windowhref
+	 */
+	reset : function () {
+		if (document._old_href) {
+		    window.history.pushState(
+	            {
+	                "html":null,
+	                "pageTitle":document.title
+	            },
+	            "",
+	            document._old_href
+		    );
+		    this.clear();
+		}
+		return (this);
+	},
+	
+	/**
+	 * clear stored URL
+	 * 
+	 * @return MyApplication.libs.windowhref
+	 */
+	clearOldHref : function () {
+		document._old_href = null;
+		return (this);
+	}
+
+  };
+
+  // code, private functions, etc here...
+
+  MyApplication.WindowHref = {
+	  update : MyApplication.libs.windowhref.update,
+	  reset : MyApplication.libs.windowhref.reset,
+	  clear : MyApplication.libs.windowhref.clearOldHref
   };
   
 })(jQuery, window, document, window.MyApplication);
@@ -849,11 +1059,129 @@ function parseStyleToObject(str) {
  * 
  */
 /**
- * 
+ * initialize modal XHR triggers and watch for modal XHR forms
  */
-/**
- * 
- */
+;(function ($, window, document, MyApplication, undefined) {
+    'use strict';
+    
+	if ((typeof $.fn.modal == 'undefined') && (typeof Foundation.Reveal == 'undefined')) {
+		console.warn('jQuery Modal and/or Foundation Reveal plug-ins not found...');
+		return;
+	}
+	var $body = $(document),
+		$ajaxButtons  = MyApplication.Config.xhrSelectors.xhrButtons, // "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']",
+		$ajaxCTAOpen  = MyApplication.Config.xhrSelectors.xhrCTAOpen, // "A.btn-cta-xhr.cta-xhr-modal",
+		$ajaxCTAClose = MyApplication.Config.xhrSelectors.xhrCTAClose, // ".modal-content .btn-cta-xhr-close, .modal-content .alert, .modal-content .close, .modal-content .cta-xhr-modal-close",
+		$ajaxForms    = MyApplication.Config.xhrSelectors.xhrForms // ".modal-content .form-xhr"
+	;
+	
+	//
+	// modal triggers
+	//
+	var handler_initXHRModalTrigger = function (oEvent) {
+		
+		var $this = $(this),
+			$btnUrl = $this.attr('href');
+		
+		$.ajax({
+			headers : {
+				'Accept' : 'text/html',
+				'X-layout' : 'modal'
+			},
+			type	: "GET",
+			cache	: false,
+			url		: $this.attr('href'),
+			success	: function (data) {
+
+				MyApplication.Modal.open(data, $btnUrl);
+
+				if ($.dataTable) {
+					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
+						// console.log( tabledata );
+					}, true);
+				}
+				
+			}
+		});
+		
+		oEvent.preventDefault();
+		oEvent.stopPropagation();
+		oEvent.stopImmediatePropagation();
+		return (false);
+		
+	}; 
+
+	//
+	// modal forms
+	//
+	var handler_initXHRModalForm = function (oEvent) {
+		var $form = $(this),
+			formURL = $form.attr('action'),
+			formData = $form.serializeArray()
+		;
+		
+		formData.push( 
+			($form.find('INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
+		);
+		
+		$.ajax({
+			headers : {
+				'Accept' : 'text/html',
+				'X-layout' : 'modal'
+			},
+			type	: "POST",
+			cache	: false,
+			url		: formURL,
+			data	: formData,
+			success	: function (data) {
+
+				MyApplication.Modal.close();
+				MyApplication.Modal.open(data, formURL);
+				
+				if ($.dataTable) {
+					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
+						// console.log( tabledata );
+					}, true);
+				}
+				
+			}
+		});
+		
+		oEvent.preventDefault();
+		oEvent.stopPropagation();
+		oEvent.stopImmediatePropagation();
+		return (false);
+	};
+
+	//
+	// modal close
+	//
+	var handler_closeModal = function (oEvent) {
+		try {
+			MyApplication.Modal.close();
+		} catch (e) {}
+		
+		oEvent.preventDefault();
+		oEvent.stopPropagation();
+		oEvent.stopImmediatePropagation();
+		return (false);
+	};
+
+	//
+	// watch DOM elements
+	//
+	$body.on('click',  $ajaxCTAOpen,  {}, handler_initXHRModalTrigger);
+	$body.on('submit', $ajaxForms,    {}, handler_initXHRModalForm);
+	$body.on('click',  $ajaxCTAClose, {}, handler_closeModal);
+
+	$(document).ready(function () {
+		$($ajaxCTAOpen).on('click', handler_initXHRModalTrigger);
+		$($ajaxForms).on('click', handler_initXHRModalForm);
+		$($ajaxCTAClose).on('click', handler_closeModal);
+	});
+
+})(jQuery, window, document, window.MyApplication);
+
 /**
  * BB's Zend Framework 2 Components
  * 
@@ -927,6 +1255,7 @@ if (!jQuery) {
 					
 					oEvent.preventDefault();
 					oEvent.stopPropagation();
+					oEvent.stopImmediatePropagation();
 					return (false);
 				});
 			});
@@ -935,208 +1264,20 @@ if (!jQuery) {
 		return (this);
 	};
 
-	/**
-	 * open modal dialog
-	 * 
-	 * @param  mixed  data  the modal content
-	 * @param  string  updateWindowHref  URL to update browser history and location, -false/null- disables, default -false- 
-	 * @return jQuery
-	 */
-	MyApplication.openModal = function (data, updateWindowHref) {
-		if ((typeof $.fn.modal == 'undefined') && (typeof Foundation.Reveal == 'undefined')) {
-			console.warn('Bootstrap Modal and/or Foundation Reveal plug-ins not found...');
-			return;
-		}
-		var $modal = null;
-		if (typeof Foundation != 'undefined') {
-			if ( $('#'+MyApplication.Config.modals.foundationElementClassname).size() == 0 ) {
-				$('BODY').append('<div id="'+MyApplication.Config.modals.foundationElementClassname+'" class="'+MyApplication.Config.modals.foundationElementClassname+'" data-reveal></div>')
-			}
-			var modalData = ''+data+'',
-			    m = new Foundation.Reveal($('#'+MyApplication.Config.modals.foundationElementClassname))
-			;
-			$('#'+MyApplication.Config.modals.foundationElementClassname).html(data).foundation('open');
-			$modal = $('.'+MyApplication.Config.modals.foundationElementClassname);
-		} else {
-			$modalDefaults = {
-				show: true
-			};
-			$(data).modal($modalDefaults);
-			$modal = $('.'+MyApplication.Config.modals.bootstrapElementClassname);
-		}
-		
-		if (updateWindowHref) {
-			document._old_href = window.location.href;
-		    window.history.pushState(
-		        {
-		            "html" : null,
-		            "pageTitle" : document.title
-		        },
-		        "",
-		        updateWindowHref
-		    );
-		}
-		
-		return ($modal);
-	};
+
 	
-	/**
-	 * close modal dialog
-	 * 
-	 * @return MyApplication
-	 */
-	MyApplication.closeModal = function () {
-		if ((typeof $.fn.modal == 'undefined') && (typeof Foundation.Reveal == 'undefined')) {
-			console.warn('jQuery Modal and/or Foundation Reveal plug-ins not found...');
-			return;
-		}
-		
-		// close/destroy modals
-		if (typeof Foundation != 'undefined') {
-			$modal = $('.'+MyApplication.Config.modals.foundationElementClassname)
-			$modal.foundation('close');
-			$modal.foundation('destroy');
-		} else {
-			$modal = $('.'+MyApplication.Config.modals.bootstrapElementClassname)
-			$modal.modal('hide');
-		}
-		
-		// clean up
-		$('BODY').removeClass('is-reveal-open');
-		$('.reveal, .modal, .modal-backdrop').remove();
-		
-		// (re)set document URL
-		if (document._old_href) {
-		    window.history.pushState(
-	            {
-	                "html":null,
-	                "pageTitle":document.title
-	            },
-	            "",
-	            document._old_href
-		    );
-		    document._old_href = null;
-		}
-		
-		return (this);
-	};
-
-	/**
-	 * init modal (click) triggers
-	 * 
-	 * @return MyApplication
-	 */
-	MyApplication.initCTAXHRModals = function () {
-		
-		if ((typeof $.fn.modal == 'undefined') && (typeof Foundation.Reveal == 'undefined')) {
-			console.warn('jQuery Modal and/or Foundation Reveal plug-ins not found...');
-			return;
-		}
-		var $body = $('BODY'),
-			$ajaxButtons  = MyApplication.Config.xhrSelectors.xhrButtons, // "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']",
-			$ajaxCTAOpen  = MyApplication.Config.xhrSelectors.xhrCTAOpen, // "A.btn-cta-xhr.cta-xhr-modal",
-			$ajaxCTAClose = MyApplication.Config.xhrSelectors.xhrCTAClose, // ".modal-content .btn-cta-xhr-close, .modal-content .alert, .modal-content .close, .modal-content .cta-xhr-modal-close",
-			$ajaxForms    = MyApplication.Config.xhrSelectors.xhrForms // ".modal-content .form-xhr"
-		;
-		
-		//
-		// modal triggers
-		//
-		$body.on('click', $ajaxCTAOpen, {}, function (oEvent) {
-			var $this = $(this),
-				$actioncontext = $.data($this, "actioncontext")
-				$btnUrl = $this.attr('href');
-			
-			$.ajax({
-				headers : {
-					'Accept' : 'text/html',
-					'X-layout' : 'modal'
-				},
-				type	: "GET",
-				cache	: false,
-				url		: $this.attr('href'),
-				success	: function (data) {
-					
-					MyApplication.openModal(data, $btnUrl);
-
-					if ($.dataTable) {
-						$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
-							// console.log( tabledata );
-						}, true);
-					}
-					
-				}
-			});
-			
-			oEvent.preventDefault();
-			oEvent.stopPropagation();
-			return (false);
-			
-		}); 
 	
-		//
-		// modal forms
-		//
-		$body.on('submit', $ajaxForms, {}, function (oEvent) {
-			var $form = $(this),
-				formURL = $form.attr('action'),
-				formData = $form.serializeArray()
-			;
-			
-			formData.push( 
-				($form.find('INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
-			);
-			
-			$.ajax({
-				headers : {
-					'Accept' : 'text/html',
-					'X-layout' : 'modal'
-				},
-				type	: "POST",
-				cache	: false,
-				url		: formURL,
-				data	: formData,
-				success	: function (data) {
-
-					MyApplication.closeModal();
-					MyApplication.openModal(data, $formURL);
-					
-					if ($.dataTable) {
-						$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
-							// console.log( tabledata );
-						}, true);
-					}
-					
-				}
-			});
-			
-			oEvent.preventDefault();
-			oEvent.stopPropagation();
-			return (false);
-		});
-
-		//
-		// modal close
-		//
-		$body.on('click', $ajaxCTAClose, {}, function (oEvent) {
-			MyApplication.closeModal();
-			
-			oEvent.preventDefault();
-			oEvent.stopPropagation();
-			return (false);
-		});
-		
-		return (this);
-	};
 	
+
 	//
 	// init application components
 	//
 	$doc.ready(function () {
+
 		$(document).myapplication();
 		
 		try {
-			if (MyApplication.initCTAXHRModals) { MyApplication.initCTAXHRModals(); }
+			/*if (MyApplication.initCTAXHRModals) { MyApplication.initCTAXHRModals(); }*/
 		} catch (ex) {}
 		
 		try {

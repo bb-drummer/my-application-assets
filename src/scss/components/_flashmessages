@@ -27,6 +27,7 @@ $flashmessages-text-color-warning: $flashmessages-text-color;
 $flashmessages-text-color-error: $flashmessages-text-color;
 $flashmessages-text-color-success: $white;
 
+$flashmessages-icon-path: '/application-assets/dist/img/icons/';
 
 @mixin myapplication-flashmessages {
 
@@ -42,35 +43,30 @@ $flashmessages-text-color-success: $white;
 	    background			: no-repeat 8px 7px;
 	    min-height			: 28px;
 	
-		.info {
-		    background-image	: url(../img/icons/info.gif);
-		}
-		
-		.warning {
-			color				: $flashmessages-text-color-warning;
-			background-color	: $flashmessages-background-color-warning;
-		    background-image	: url(../img/icons/icon_warning.gif);
-		}
-		
-		.error {
-			color				: $flashmessages-text-color-error;
-			background-color	: $flashmessages-background-color-error;
-		    background-image	: url(../img/icons/icon_fatalerror.gif);
-		}
-		
-		.success {
-			color				: $flashmessages-text-color-success;
-			background-color	: $flashmessages-background-color-success;
-		    background-image	: url(../img/icons/but_ok.gif);
-		}
-		
 		button.close {
 		    font-size			: $flashmessages-button-close-height;
 		    line-height			: $flashmessages-button-close-height;
-		    vertical-align		: middle;
+		    vertical-align		: text-top;
+		    font-size           : 16px;
+		    font-weight         : bold;
+		    float               : right;
+		}
+		
+		&.info {
+		    background-image	: url( ($flashmessages-icon-path + 'info.gif') );
+		}
+		
+		&.warning {
+			color				: $flashmessages-text-color-warning;
+			background-color	: $flashmessages-background-color-warning;
+		    background-image	: url( ($flashmessages-icon-path + 'icon_warning.gif') );
 		}
 		
 		&.error {
+			color				: $flashmessages-text-color-error;
+			background-color	: $flashmessages-background-color-error;
+		    background-image	: url( ($flashmessages-icon-path + 'icon_fatalerror.gif') );
+		    
 			button.close {
 				color				: $flashmessages-text-color-error;
 				opacity				: 1;
@@ -78,11 +74,16 @@ $flashmessages-text-color-success: $white;
 		}
 		
 		&.success {
+			color				: $flashmessages-text-color-success;
+			background-color	: $flashmessages-background-color-success;
+		    background-image	: url( ($flashmessages-icon-path + 'but_ok.gif') );
+		    
 			button.close {
 				color				: $flashmessages-text-color-success;
 				opacity				: .8;
 			}
 		}
+		
 	}
 	/* @end */
 		

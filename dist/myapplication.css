@@ -35,27 +35,29 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 */
 /* @group vendor framework overrides */
 /* @group bootstrap overrides */
-.navbar-inverse {
-  border-radius: 0px; }
-
-.navbar .navbar-brand {
-  margin-left: -15px;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 20px;
-  width: auto;
-  white-space: nowrap; }
-
-.jumbotron button.close {
-  font-size: 30px; }
-
-.row button.close {
-  margin-right: 10px;
-  margin-top: 3px; }
+.bootstrap {
+  /* 'danger' button */ }
+  .bootstrap .navbar-inverse {
+    border-radius: 0px; }
+  .bootstrap .navbar .navbar-brand {
+    margin-left: -15px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    width: auto;
+    white-space: nowrap; }
+  .bootstrap .jumbotron button.close {
+    font-size: 30px; }
+  .bootstrap .row button.close {
+    margin-right: 10px;
+    margin-top: 3px; }
+  .bootstrap .alert.btn-danger {
+    padding: 6px 12px;
+    margin-bottom: 0; }
 
 /* @end */
-.button,
-.button-group {
+.foundation .button,
+.foundation .button-group {
   margin-bottom: 0; }
 
 /* @group font-awesome icons overrides */
@@ -576,30 +578,33 @@ footer .poweredby img {
   font-size: 0.75rem;
   background: no-repeat 8px 7px;
   min-height: 28px; }
-  .flashmessages .info {
-    background-image: url(../img/icons/info.gif); }
-  .flashmessages .warning {
-    color: #0a0a0a;
-    background-color: yellow;
-    background-image: url(../img/icons/icon_warning.gif); }
-  .flashmessages .error {
-    color: #0a0a0a;
-    background-color: red;
-    background-image: url(../img/icons/icon_fatalerror.gif); }
-  .flashmessages .success {
-    color: #fefefe;
-    background-color: #57a900;
-    background-image: url(../img/icons/but_ok.gif); }
   .flashmessages button.close {
     font-size: 0.875rem;
     line-height: 0.875rem;
-    vertical-align: middle; }
-  .flashmessages.error button.close {
+    vertical-align: text-top;
+    font-size: 16px;
+    font-weight: bold;
+    float: right; }
+  .flashmessages.info {
+    background-image: url("/application-assets/dist/img/icons/info.gif"); }
+  .flashmessages.warning {
     color: #0a0a0a;
-    opacity: 1; }
-  .flashmessages.success button.close {
+    background-color: yellow;
+    background-image: url("/application-assets/dist/img/icons/icon_warning.gif"); }
+  .flashmessages.error {
+    color: #0a0a0a;
+    background-color: red;
+    background-image: url("/application-assets/dist/img/icons/icon_fatalerror.gif"); }
+    .flashmessages.error button.close {
+      color: #0a0a0a;
+      opacity: 1; }
+  .flashmessages.success {
     color: #fefefe;
-    opacity: .8; }
+    background-color: #57a900;
+    background-image: url("/application-assets/dist/img/icons/but_ok.gif"); }
+    .flashmessages.success button.close {
+      color: #fefefe;
+      opacity: .8; }
 
 /* @end */
 /* @group data filter form */

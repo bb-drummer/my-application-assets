@@ -8,30 +8,38 @@
 
 @mixin myapplication-bootstrap-overrides {
 
-	/* @group bootstrap overrides */
-	
-	.navbar-inverse {
-		border-radius		: 0px;
-	}
-	
-	.navbar .navbar-brand {
-		margin-left			: -15px;
-		font-size			: 20px;
-		font-weight			: bold;
-		line-height			: 20px;
-		width				: auto;
-	    white-space			: nowrap;
-	}
-	
-	.jumbotron button.close {
-	    font-size			: 30px;
-	}
-	
-	.row button.close {
-	    margin-right		: 10px;
-	    margin-top			: 3px;
-	}
-	
-	/* @end */
-
+    /* @group bootstrap overrides */
+    .bootstrap{
+    
+        .navbar-inverse {
+            border-radius          : 0px;
+        }
+        
+        .navbar .navbar-brand {
+            margin-left            : -15px;
+            font-size              : 20px;
+            font-weight            : bold;
+            line-height            : 20px;
+            width                  : auto;
+            white-space            : nowrap;
+        }
+        
+        .jumbotron button.close {
+            font-size              : 30px;
+        }
+        
+        .row button.close {
+            margin-right           : 10px;
+            margin-top             : 3px;
+        }
+    
+        /* 'danger' button */
+        .alert.btn-danger {
+            padding                : 6px 12px;
+            margin-bottom          : 0;
+        }
+    
+    }
+    /* @end */
+    
 }

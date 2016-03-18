@@ -26,7 +26,7 @@ var VERSIONED_FILES = [
 
 var DIST_FILES = [
   './_build/assets/css/myapplication.css',
-  '_build/assets/js/myapplication.js'
+  './_build/assets/js/myapplication.js'
 ];
 
 var CURRENT_VERSION = require('../package.json').version;
