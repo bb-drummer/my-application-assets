@@ -60,6 +60,9 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 .foundation .button-group {
   margin-bottom: 0; }
 
+.foundation .reveal {
+  margin: 0 auto 0; }
+
 /* @group font-awesome icons overrides */
 .fa {
   min-width: 16px;
