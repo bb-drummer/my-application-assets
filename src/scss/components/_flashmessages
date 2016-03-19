@@ -41,8 +41,10 @@ $flashmessages-icon-path: '/application-assets/dist/img/icons/';
 	    margin-bottom		: $flashmessages-margin-bottom;
 	    font-size			: $flashmessages-font-size;
 	    background			: no-repeat 8px 7px;
-	    min-height			: 28px;
-	
+	    min-height			: 1.33em;
+		position            : relative;
+		line-height			: 1.33em;
+		
 		button.close {
 		    font-size			: $flashmessages-button-close-height;
 		    line-height			: $flashmessages-button-close-height;

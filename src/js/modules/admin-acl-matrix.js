@@ -18,11 +18,12 @@
 		$switches.each(function (idx, elm) {
 			var $switchform = $(this)
 			;
-			$switchform.on('submit', function (oEvent) {
+			$switchform.on('submit.myapp.aclmatrix', function (oEvent) {
 				var $form = $(this),
+					$class = $form.hasClass('allow') ? 'allow' : 'deny',
 					formURL = $form.attr('action'),
 					formData = $form.serializeArray(),
-					$td = $form.parent()
+					$td = $form.parents('td').first()
 				;
 				$.ajax({
 					headers : {
@@ -34,16 +35,11 @@
 					url		: formURL,
 					data	: formData,
 					success	: function (data) {
-						
-						$td.find('> FORM.allow > INPUT[type=submit], > FORM.deny > INPUT[type=submit]').each(function (idx, elm) {
-							var $formsubmitter = $(this);
-							if ( $formsubmitter.attr('disabled') == 'disabled' ) {
-								$formsubmitter.attr('disabled', false);
-							} else {
-								$formsubmitter.attr('disabled', 'disabled');
-							}
-						});
-						
+						var enabledSel = 'INPUT[type=submit]:not(:disabled), INPUT[type=submit]:not([disabled=disabled])';
+						var disabledSel = 'INPUT[type=submit]:disabled, INPUT[type=submit][disabled=disabled]';
+						$form.find( enabledSel ).attr('disabled', 'disabled');
+						$form.next().find( disabledSel ).attr('disabled', false);
+						$form.prev().find( disabledSel ).attr('disabled', false);
 					}
 				});
 				

@@ -5,7 +5,7 @@
 ////
 /// @group components/panel
 ////
-$panel-font-size: rem-calc(12);
+$panel-font-size: 14px;
 $panel-text-color: $body-font-color;
 $panel-background-color: $body-background;
 $panel-border-radius: rem-calc(6);
@@ -76,6 +76,10 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 	  border: 1px solid transparent;
 	  border-radius: $panel-border-radius;
 	  @include box-shadow(0 1px 1px rgba(0,0,0,.05));
+	  
+	  .close-button {
+        font-size: rem-calc(20);
+      }
 	}
 	
 	// Panel contents
@@ -86,6 +90,7 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 	
 	// Optional heading
 	.panel-heading {
+	  position: relative;
 	  padding: $panel-heading-padding;
 	  border-bottom: 1px solid transparent;
 	  @include border-top-radius(($panel-border-radius - 1));
@@ -100,6 +105,8 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 	  margin-top: 0;
 	  margin-bottom: 0;
 	  font-size: ceil(($panel-font-size * 1.125));
+	  line-height: ceil(($panel-font-size * 1.4)); 
+	  // rem-calc(20px);
 	  color: inherit;
 	
 	  > a,

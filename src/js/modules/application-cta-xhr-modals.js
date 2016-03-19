@@ -35,7 +35,7 @@
 
 				MyApplication.Modal.open(data, $btnUrl);
 
-				if ($.dataTable) {
+				if ($.fn.dataTable) {
 					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
@@ -78,7 +78,7 @@
 				MyApplication.Modal.close();
 				MyApplication.Modal.open(data, formURL);
 				
-				if ($.dataTable) {
+				if ($.fn.dataTable) {
 					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
@@ -110,14 +110,14 @@
 	//
 	// watch DOM elements
 	//
-	$body.on('click',  $ajaxCTAOpen,  {}, handler_initXHRModalTrigger);
-	$body.on('submit', $ajaxForms,    {}, handler_initXHRModalForm);
-	$body.on('click',  $ajaxCTAClose, {}, handler_closeModal);
+	$body.on('click.myapp.xhrmodalopen',  $ajaxCTAOpen,  {}, handler_initXHRModalTrigger);
+	$body.on('submit.myapp.xhrmodalsubmit', $ajaxForms,    {}, handler_initXHRModalForm);
+	$body.on('click.myapp.xhrmodalclose',  $ajaxCTAClose, {}, handler_closeModal);
 
 	$(document).ready(function () {
-		$($ajaxCTAOpen).on('click', handler_initXHRModalTrigger);
-		$($ajaxForms).on('click', handler_initXHRModalForm);
-		$($ajaxCTAClose).on('click', handler_closeModal);
+		$($ajaxCTAOpen).on('click.myapp.xhrmodalopen', handler_initXHRModalTrigger);
+		$($ajaxForms).on('submit.myapp.xhrmodalsubmit', handler_initXHRModalForm);
+		$($ajaxCTAClose).on('click.myapp.xhrmodalclose', handler_closeModal);
 	});
 
 })(jQuery, window, document, window.MyApplication);

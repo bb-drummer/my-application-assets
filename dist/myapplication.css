@@ -36,6 +36,8 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
 /* @group vendor framework overrides */
 /* @group bootstrap overrides */
 .bootstrap {
+  /* navigation bar */
+  /* panels */
   /* 'danger' button */ }
   .bootstrap .navbar-inverse {
     border-radius: 0px; }
@@ -48,9 +50,6 @@ $panel-danger-heading-bg:     $state-danger-bg !default;
     white-space: nowrap; }
   .bootstrap .jumbotron button.close {
     font-size: 30px; }
-  .bootstrap .row button.close {
-    margin-right: 10px;
-    margin-top: 3px; }
   .bootstrap .alert.btn-danger {
     padding: 6px 12px;
     margin-bottom: 0; }
@@ -233,6 +232,8 @@ footer .poweredby img {
   border: 1px solid transparent;
   border-radius: 0.375rem;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
+  .panel .close-button {
+    font-size: 1.25rem; }
 
 .panel-body {
   padding: 15px; }
@@ -243,6 +244,7 @@ footer .poweredby img {
     clear: both; }
 
 .panel-heading {
+  position: relative;
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-right-radius: -0.625rem;
@@ -253,7 +255,8 @@ footer .poweredby img {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 1rem;
+  font-size: 16px;
+  line-height: 20px;
   color: inherit; }
   .panel-title > a,
   .panel-title > small,
@@ -548,7 +551,7 @@ footer .poweredby img {
 .panel-default > .panel-heading > NAV UL,
 .panel-default > .panel-heading > NAV UL LI {
   float: left;
-  font-size: 0.75rem;
+  font-size: 14px;
   color: #0a0a0a; }
 
 .panel-default > .panel-heading {
@@ -578,9 +581,11 @@ footer .poweredby img {
   padding: 7px 10px 5px 30px;
   margin-top: 0;
   margin-bottom: 0.625rem;
-  font-size: 0.75rem;
+  font-size: 14px;
   background: no-repeat 8px 7px;
-  min-height: 28px; }
+  min-height: 1.33em;
+  position: relative;
+  line-height: 1.33em; }
   .flashmessages button.close {
     font-size: 0.875rem;
     line-height: 0.875rem;

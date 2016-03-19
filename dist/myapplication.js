@@ -1072,11 +1072,12 @@ function parseStyleToObject(str) {
 		$switches.each(function (idx, elm) {
 			var $switchform = $(this)
 			;
-			$switchform.on('submit', function (oEvent) {
+			$switchform.on('submit.myapp.aclmatrix', function (oEvent) {
 				var $form = $(this),
+					$class = $form.hasClass('allow') ? 'allow' : 'deny',
 					formURL = $form.attr('action'),
 					formData = $form.serializeArray(),
-					$td = $form.parent()
+					$td = $form.parents('td').first()
 				;
 				$.ajax({
 					headers : {
@@ -1088,16 +1089,11 @@ function parseStyleToObject(str) {
 					url		: formURL,
 					data	: formData,
 					success	: function (data) {
-						
-						$td.find('> FORM.allow > INPUT[type=submit], > FORM.deny > INPUT[type=submit]').each(function (idx, elm) {
-							var $formsubmitter = $(this);
-							if ( $formsubmitter.attr('disabled') == 'disabled' ) {
-								$formsubmitter.attr('disabled', false);
-							} else {
-								$formsubmitter.attr('disabled', 'disabled');
-							}
-						});
-						
+						var enabledSel = 'INPUT[type=submit]:not(:disabled), INPUT[type=submit]:not([disabled=disabled])';
+						var disabledSel = 'INPUT[type=submit]:disabled, INPUT[type=submit][disabled=disabled]';
+						$form.find( enabledSel ).attr('disabled', 'disabled');
+						$form.next().find( disabledSel ).attr('disabled', false);
+						$form.prev().find( disabledSel ).attr('disabled', false);
 					}
 				});
 				
@@ -1151,7 +1147,7 @@ function parseStyleToObject(str) {
 
 				MyApplication.Modal.open(data, $btnUrl);
 
-				if ($.dataTable) {
+				if ($.fn.dataTable) {
 					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
@@ -1194,7 +1190,7 @@ function parseStyleToObject(str) {
 				MyApplication.Modal.close();
 				MyApplication.Modal.open(data, formURL);
 				
-				if ($.dataTable) {
+				if ($.fn.dataTable) {
 					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
@@ -1226,14 +1222,14 @@ function parseStyleToObject(str) {
 	//
 	// watch DOM elements
 	//
-	$body.on('click',  $ajaxCTAOpen,  {}, handler_initXHRModalTrigger);
-	$body.on('submit', $ajaxForms,    {}, handler_initXHRModalForm);
-	$body.on('click',  $ajaxCTAClose, {}, handler_closeModal);
+	$body.on('click.myapp.xhrmodalopen',  $ajaxCTAOpen,  {}, handler_initXHRModalTrigger);
+	$body.on('submit.myapp.xhrmodalsubmit', $ajaxForms,    {}, handler_initXHRModalForm);
+	$body.on('click.myapp.xhrmodalclose',  $ajaxCTAClose, {}, handler_closeModal);
 
 	$(document).ready(function () {
-		$($ajaxCTAOpen).on('click', handler_initXHRModalTrigger);
-		$($ajaxForms).on('click', handler_initXHRModalForm);
-		$($ajaxCTAClose).on('click', handler_closeModal);
+		$($ajaxCTAOpen).on('click.myapp.xhrmodalopen', handler_initXHRModalTrigger);
+		$($ajaxForms).on('submit.myapp.xhrmodalsubmit', handler_initXHRModalForm);
+		$($ajaxCTAClose).on('click.myapp.xhrmodalclose', handler_closeModal);
 	});
 
 })(jQuery, window, document, window.MyApplication);
