@@ -555,8 +555,7 @@ footer .poweredby img {
   color: #0a0a0a; }
 
 .panel-default > .panel-heading {
-  display: block;
-  height: 40px; }
+  display: block; }
 
 .panel-default > .panel-heading LABEL > SPAN {
   min-width: 65px;
