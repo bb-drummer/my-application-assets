@@ -45,7 +45,7 @@
 				
 				oEvent.preventDefault();
 				oEvent.stopPropagation();
-				oEvent.stopImmediatePropagation();
+				//oEvent.stopImmediatePropagation();
 				return (false);
 			});
 		});

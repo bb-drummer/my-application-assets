@@ -1099,7 +1099,7 @@ function parseStyleToObject(str) {
 				
 				oEvent.preventDefault();
 				oEvent.stopPropagation();
-				oEvent.stopImmediatePropagation();
+				//oEvent.stopImmediatePropagation();
 				return (false);
 			});
 		});
@@ -1147,8 +1147,8 @@ function parseStyleToObject(str) {
 
 				MyApplication.Modal.open(data, $btnUrl);
 
-				if ($.fn.dataTable) {
-					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
+				if ( (typeof $.fn.dataTable != 'undefiened') {
+					$('.datatable.crud').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
 				}
@@ -1191,7 +1191,7 @@ function parseStyleToObject(str) {
 				MyApplication.Modal.open(data, formURL);
 				
 				if ($.fn.dataTable) {
-					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
+					$('.datatable.crud').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
 				}

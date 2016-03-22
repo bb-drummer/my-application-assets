@@ -35,8 +35,8 @@
 
 				MyApplication.Modal.open(data, $btnUrl);
 
-				if ($.fn.dataTable) {
-					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
+				if ( (typeof $.fn.dataTable != 'undefiened') {
+					$('.datatable.crud').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
 				}
@@ -79,7 +79,7 @@
 				MyApplication.Modal.open(data, formURL);
 				
 				if ($.fn.dataTable) {
-					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
+					$('.datatable.crud').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
 				}
