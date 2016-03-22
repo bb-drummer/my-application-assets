@@ -61,7 +61,7 @@
 		;
 		
 		formData.push( 
-			($form.find('INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
+			($form.find('input[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
 		);
 		
 		$.ajax({

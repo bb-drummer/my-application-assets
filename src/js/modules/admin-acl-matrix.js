@@ -12,7 +12,7 @@
 	 */
 	$('.datatable.matrix').each(function (idx, elm) {
 		var $table = $(this),
-			$switches = $table.find('FORM.allow, FORM.deny')
+			$switches = $table.find('form.allow, form.deny')
 		;
 		
 		$switches.each(function (idx, elm) {
@@ -35,8 +35,8 @@
 					url		: formURL,
 					data	: formData,
 					success	: function (data) {
-						var enabledSel = 'INPUT[type=submit]:not(:disabled), INPUT[type=submit]:not([disabled=disabled])';
-						var disabledSel = 'INPUT[type=submit]:disabled, INPUT[type=submit][disabled=disabled]';
+						var enabledSel = 'input[type=submit]:not(:disabled), input[type=submit]:not([disabled=disabled])';
+						var disabledSel = 'input[type=submit]:disabled, input[type=submit][disabled=disabled]';
 						$form.find( enabledSel ).attr('disabled', 'disabled');
 						$form.next().find( disabledSel ).attr('disabled', false);
 						$form.prev().find( disabledSel ).attr('disabled', false);
