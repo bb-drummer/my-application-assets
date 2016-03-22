@@ -1147,7 +1147,7 @@ function parseStyleToObject(str) {
 
 				MyApplication.Modal.open(data, $btnUrl);
 
-				if ( (typeof $.fn.dataTable != 'undefiened') {
+				if ( (typeof $.fn.dataTable != 'undefiened') ) {
 					$('.datatable.crud').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
@@ -1190,7 +1190,7 @@ function parseStyleToObject(str) {
 				MyApplication.Modal.close();
 				MyApplication.Modal.open(data, formURL);
 				
-				if ($.fn.dataTable) {
+				if ( (typeof $.fn.dataTable != 'undefiened') ) {
 					$('.datatable.crud').dataTable().api().ajax.reload(function ( tabledata ) {
 						// console.log( tabledata );
 					}, true);
