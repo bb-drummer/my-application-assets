@@ -267,7 +267,7 @@ footer .poweredby img {
 
 .panel-footer {
   padding: 10px 15px;
-  background-color: initial;
+  background-color: #f5f5f5;
   border-top: 1px solid #ddd;
   border-bottom-right-radius: -0.625rem;
   border-bottom-left-radius: -0.625rem; }
@@ -451,12 +451,12 @@ footer .poweredby img {
   border-color: #ddd; }
   .panel-default > .panel-heading {
     color: #777;
-    background-color: initial;
+    background-color: #f5f5f5;
     border-color: #ddd; }
     .panel-default > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: #ddd; }
     .panel-default > .panel-heading .badge {
-      color: initial;
+      color: #f5f5f5;
       background-color: #777; }
   .panel-default > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #ddd; }
