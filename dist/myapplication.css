@@ -448,18 +448,18 @@ footer .poweredby img {
       border-bottom: 1px solid #ddd; }
 
 .panel-default {
-  border-color: inherit; }
+  border-color: #ddd; }
   .panel-default > .panel-heading {
     color: #777;
     background-color: initial;
-    border-color: inherit; }
+    border-color: #ddd; }
     .panel-default > .panel-heading + .panel-collapse > .panel-body {
-      border-top-color: inherit; }
+      border-top-color: #ddd; }
     .panel-default > .panel-heading .badge {
       color: initial;
       background-color: #777; }
   .panel-default > .panel-footer + .panel-collapse > .panel-body {
-    border-bottom-color: inherit; }
+    border-bottom-color: #ddd; }
 
 .panel-primary {
   border-color: #337ab7; }
