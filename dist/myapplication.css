@@ -268,7 +268,7 @@ footer .poweredby img {
 .panel-footer {
   padding: 10px 15px;
   background-color: initial;
-  border-top: 1px solid inherit;
+  border-top: 1px solid #ddd;
   border-bottom-right-radius: -0.625rem;
   border-bottom-left-radius: -0.625rem; }
 
@@ -441,11 +441,11 @@ footer .poweredby img {
     border-bottom: 0; }
     .panel-group .panel-heading + .panel-collapse > .panel-body,
     .panel-group .panel-heading + .panel-collapse > .list-group {
-      border-top: 1px solid inherit; }
+      border-top: 1px solid #ddd; }
   .panel-group .panel-footer {
     border-top: 0; }
     .panel-group .panel-footer + .panel-collapse .panel-body {
-      border-bottom: 1px solid inherit; }
+      border-bottom: 1px solid #ddd; }
 
 .panel-default {
   border-color: inherit; }
