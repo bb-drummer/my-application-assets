@@ -6,9 +6,9 @@
 /// @group components/breadcrumbs
 ////
 $breadcrumbs-caret-color: #ccc;
-$breadcrumbs-background-color: #f5f5f5;
+$breadcrumbs-background-color: rgba(255, 255, 255, 0.1);
 $breadcrumbs-border-radius: rem-calc(6);
-$breadcrumbs-border-color: #ddd;
+$breadcrumbs-border-color: rgba(0,0,0,.3);
 $breadcrumbs-border-width: rem-calc(1);
 
 
