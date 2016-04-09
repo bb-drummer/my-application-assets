@@ -4,12 +4,12 @@
  * myApplication client (init-)script
  *     
  * @package     [MyApplication]
- * @package     BB's Zend Framework 2 Components
- * @package     myApplication client script
- * @author        Björn Bartels <development@bjoernbartels.earth>
- * @link            https://gitlab.bjoernbartels.earth/groups/themes
+ * @subpackage  BB's Zend Framework 2 Components
+ * @subpackage  myApplication client script
+ * @author      Björn Bartels <coding@bjoernbartels.earth>
+ * @link        https://gitlab.bjoernbartels.earth/groups/themes
  * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @copyright copyright (c) 2016 Björn Bartels <development@bjoernbartels.earth>
+ * @copyright   copyright (c) 2016 Björn Bartels <coding@bjoernbartels.earth>
  */
 !function($) {
 "use strict";
@@ -1244,13 +1244,13 @@ function parseStyleToObject(str) {
  * 
  * MyApplication client (init-)script
  *   
- * @package		[MyApplication]
- * @package		BB's Zend Framework 2 Components
- * @package		MyApplication client script
- * @author		Björn Bartels <development@bjoernbartels.earth>
- * @link		https://gitlab.bjoernbartels.earth/groups/themes
- * @license		http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
- * @copyright	copyright (c) 2016 Björn Bartels <development@bjoernbartels.earth>
+ * @package     [MyApplication]
+ * @subpackage  BB's Zend Framework 2 Components
+ * @subpackage  myApplication client script
+ * @author      Björn Bartels <coding@bjoernbartels.earth>
+ * @link        https://gitlab.bjoernbartels.earth/groups/themes
+ * @license     http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
+ * @copyright   copyright (c) 2016 Björn Bartels <coding@bjoernbartels.earth>
  */
 if (!jQuery) {
 	console.error('jQuery not found...');

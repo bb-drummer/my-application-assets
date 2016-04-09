@@ -3,7 +3,7 @@
   "version": "",
   "main": "dist/myapplication.js",
   "description": "[MyApplication] assets collection",
-  "author": "Björn Bartels <development@bjoernbartels.earth>",
+  "author": "Björn Bartels <coding@bjoernbartels.earth>",
   "homepage": "https://bjoernbartels.earth",
   "scripts": {
     "start": "gulp",
